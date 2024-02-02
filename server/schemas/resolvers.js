@@ -1,6 +1,6 @@
-const { User } = require('../models');
-const { signToken, AuthenticationError } = require('../utils/auth');
-const { dateScalar } = require('./scalar');
+const { User, Job } = require("../models");
+const { signToken, AuthenticationError } = require("../utils/auth");
+const { dateScalar } = require("./scalar");
 
 const resolvers = {
   Date: dateScalar,
@@ -9,9 +9,27 @@ const resolvers = {
       if (!context.user) {
         throw AuthenticationError;
       }
-      return await User.findById(context.user._id)
+      return await User.findById(context.user._id);
     },
+    findAllJobs: async (parent, args) => {
+      const jobs = await Job.find();
+      return jobs;
+    },
+    findSingleJob: async (parent, { id }) => {
+      const singleJob = await Job.findById(id);
+      return singleJob;
+    },
+    // findAllTags: async (parent, args) => {
+    //   const tags = await Job.find({
+    //     where: {
+    //       tags: /tagName/i,
+    //     },
+    //     return tags;
+    //   });
+
+    // }
   },
+
   Mutation: {
     addUser: async (parent, argObj) => {
       try {
@@ -20,7 +38,18 @@ const resolvers = {
         return { token, user };
       } catch (err) {
         console.log(err);
-        throw UserInputError
+        throw UserInputError;
+      }
+    },
+    addJob: async (parent, args, context) => {
+      try {
+        if (!context.user) {
+          throw AuthenticationError;
+        }
+        const job = await Job.create(args.job);
+        return job;
+      } catch (err) {
+        console.log(err);
       }
     },
     loginUser: async (parent, { email, password }) => {
@@ -39,7 +68,7 @@ const resolvers = {
 
       return { token, user };
     },
-  }
+  },
 };
 
 module.exports = resolvers;
