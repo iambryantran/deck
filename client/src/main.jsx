@@ -8,6 +8,8 @@ import Page404 from "./pages/Page404";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Dashboard from "./pages/Dashboard.jsx";
+import About from "./pages/About.jsx";
+import Gallery from "./pages/Gallery.jsx";
 import App from "./App.jsx";
 
 const router = createBrowserRouter([
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/gallery",
+        element: <Gallery />,
       },
       {
         path: "/login",
