@@ -5,8 +5,12 @@ import { useSelector } from "react-redux";
 import { getUser } from "../redux/slices/userSlice";
 import { Navigate } from "react-router-dom";
 import * as React from 'react';
-import Box from '@mui/material/Box';
+// import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Unstable_Grid2';
+
+
 
 import Page from "../components/Page";
 import AuthService from "../utils/auth";
@@ -74,122 +78,75 @@ export default function SignUp() {
   }
 
   return (
-    <Page isProtected={false} headContent={headContent}>
-      <div>Sign Up</div>
-      <Box
+    <Page isProtected={false} headContent={headContent} container>
+      <Grid container xs display="flex" justifyContent="center" alignItems="center" rowSpacing={1}
         sx={{
-          '& > :not(style)': { m: 1, width: '25ch' },
+          '& > :not(style)': { m: 1 ,width: '35ch' },
         }}
       >
+
         <form onSubmit={handleFormSubmit}>
+        <Grid alignItems="center">
+        <div >Sign Up</div>
+        </Grid>
+
+
+        <Grid item xs={15} md={12}>
+          {/* <label>First Name</label> */}
         <TextField 
-          id="aa" label="First Name" variant="filled" 
+          id="aa" label="First Name" variant="filled" size="small" 
           placeholder="First Name"
           name="firstName"
           type="text"
           value={formState.firstName}
           onChange={handleChange}
         />
-        <TextField id="ab" label="Last Name" variant="filled" 
+        </Grid>
+
+        <Grid item xs={15} md={12}>
+        {/* <label>Last Name</label> */}
+        <TextField id="ab" label="Last Name" variant="filled" size="small"
           placeholder="Last Name"
           name="lastName"
           type="text"
           value={formState.lastName}
           onChange={handleChange}
         />
-        <TextField id="ac" label="Email" variant="filled" 
+        </Grid>
+
+        <Grid item xs={15} md={12}>
+        {/* <label>Email</label> */}
+        <TextField id="ac" label="Email" variant="filled" size="small"
           placeholder="Email"
           name="email"
           type="email"
           value={formState.email}
           onChange={handleChange}
         />
-        <TextField id="ad" label="Password" variant="filled" 
+        </Grid>
+
+        <Grid item xs={15} md={12}>
+        {/* <label>Password </label> */}
+        <TextField id="ad" label="Password" variant="filled" size="small"
           placeholder="Password"
           name="password"
           type="password"
           value={formState.password}
           onChange={handleChange}
         />
-          {loading ? (
-          <button type="submit" disabled={true} style={styles.submitBtn}>
+        </Grid>
+
+          {loading ? ( 
+          <Button type="submit" variant="contained" disabled={true} style={styles.submitBtn}>
             Loading...
-          </button>
+          </Button>
         ) : (
-          <button type="submit" style={styles.submitBtn}>
+          <Button type="submit" variant="contained" style={styles.submitBtn}>
             Submit
-          </button>
+          </Button>
         )}
       </form>
-      {/* <form style={styles.form} onSubmit={handleFormSubmit}>
-      <TextField id="filled-basic" label="First Name" variant="filled" 
-          placeholder="First Name"
-          name="firstName"
-          type="text"
-          value={formState.firstName}
-          onChange={handleChange}
-        />
-        <TextField id="filled-basic" label="Last Name" variant="filled" 
-          placeholder="Last Name"
-          name="lastName"
-          type="text"
-          value={formState.lastName}
-          onChange={handleChange}
-        />
-        <TextField id="filled-basic" label="Email" variant="filled" 
-          placeholder="Email"
-          name="email"
-          type="email"
-          value={formState.email}
-          onChange={handleChange}
-        />
-        <TextField id="filled-basic" label="Password" variant="filled" 
-          placeholder="Password"
-          name="password"
-          type="password"
-          value={formState.password}
-          onChange={handleChange}
-        />
-
-        <input 
-          placeholder="First Name"
-          name="firstName"
-          type="text"
-          value={formState.firstName}
-          onChange={handleChange}
-        />
-        <input
-          placeholder="Last Name"
-          name="lastName"
-          type="text"
-          value={formState.lastName}
-          onChange={handleChange}
-        />
-        <input
-          placeholder="Email"
-          name="email"
-          type="email"
-          value={formState.email}
-          onChange={handleChange}
-        />
-        <input
-          placeholder="Password"
-          name="password"
-          type="password"
-          value={formState.password}
-          onChange={handleChange}
-        />
-        {loading ? (
-          <button type="submit" disabled={true} style={styles.submitBtn}>
-            Loading...
-          </button>
-        ) : (
-          <button type="submit" style={styles.submitBtn}>
-            Submit
-          </button>
-        )}
-      </form> */}
-      </Box>
+      </Grid>
       {error && <h3>{error.message}</h3>}
     </Page>
   );
