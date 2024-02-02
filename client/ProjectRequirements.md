@@ -1,8 +1,8 @@
-* Use React for the front end.
+* Use React for the front end. (FINISHED)
 
-* Use GraphQL with a Node.js and Express.js server.
+* Use GraphQL with a Node.js and Express.js server. (FINISHED)
 
-* Use MongoDB and the Mongoose ODM for the database.
+* Use MongoDB and the Mongoose ODM for the database. (FINISHED)
 
 * Use queries and mutations for retrieving, adding, updating, and deleting data.
 
@@ -14,9 +14,9 @@
 
 * Be interactive (i.e., accept and respond to user input).
 
-* Include authentication (JWT).
+* Include authentication (JWT). (FINISHED)
 
-* Protect sensitive API key information on the server.
+* Protect sensitive API key information on the server. 
 
 * Have a clean repository that meets quality coding standards (file structure, naming conventions, best practices for class and id naming conventions, indentation, high-quality comments, etc.).
 
