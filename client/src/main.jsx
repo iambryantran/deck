@@ -10,6 +10,7 @@ import SignUp from "./pages/SignUp";
 import Dashboard from "./pages/Dashboard.jsx";
 import About from "./pages/About.jsx";
 import Gallery from "./pages/Gallery.jsx";
+import JobAddPage from "./pages/JobAddPage.jsx";
 import App from "./App.jsx";
 
 const router = createBrowserRouter([
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
         path: "/signup",
         element: <SignUp />,
       },
+      {
+        path: "/jobadd",
+        element: <JobAddPage />,
+      }
     ],
   },
 ]);

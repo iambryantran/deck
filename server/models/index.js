@@ -1,5 +1,5 @@
-const User = require('./User');
-const Job = require('./Job');
-const Contact = require('./Contact');
+const User = require("./User");
+const Job = require("./Job");
+const Contact = require("./Contact");
 
-module.exports = { User };
+module.exports = { User, Job, Contact };

@@ -41,8 +41,18 @@ export default function Header() {
       </Link>
       <div style={styles.buttonDiv}>
         {isAuthenticated && (
+          <Link to={"/about"}>
+            <button style={styles.button}>About</button>
+          </Link>
+        )}
+        {isAuthenticated && (
           <Link to={"/dashboard"}>
             <button style={styles.button}>Dashboard</button>
+          </Link>
+        )}
+        {isAuthenticated && (
+          <Link to={"/gallery"}>
+          <button style={styles.button}>Gallery</button>
           </Link>
         )}
         {isAuthenticated && (
