@@ -4,6 +4,10 @@ import { LOGIN_USER } from "../graphql/mutations";
 import { useSelector } from "react-redux";
 import { getUser } from "../redux/slices/userSlice";
 import { Navigate } from "react-router-dom";
+import '../Styles/LoginForm.css'
+import { Link } from 'react-router-dom'
+import { FaUser, FaLock } from "react-icons/fa";
+import { Stack } from '@mui/material';
 
 import Page from "../components/Page";
 import AuthService from "../utils/auth";
@@ -12,7 +16,7 @@ const styles = {
   form: {
     display: "flex",
     flexDirection: "Column",
-    width: "300px",
+    // width: "300px",
   },
   submitBtn: {
     cursor: "pointer",
@@ -63,34 +67,64 @@ export default function Login() {
   }
 
   return (
-    <Page isProtected={false} headContent={headContent}>
-      <div>Login</div>
-      <form style={styles.form} onSubmit={handleFormSubmit}>
-        <input
-          placeholder="Email"
-          name="email"
-          type="email"
-          value={formState.email}
-          onChange={handleChange}
-        />
-        <input
-          placeholder="Password"
-          name="password"
-          type="password"
-          value={formState.password}
-          onChange={handleChange}
-        />
-        {loading ? (
-          <button type="submit" disabled={true} style={styles.submitBtn}>
-            Loading...
-          </button>
-        ) : (
-          <button type="submit" style={styles.submitBtn}>
-            Submit
-          </button>
-        )}
-      </form>
-      {error && <h3>{error.message}</h3>}
-    </Page>
+      <Page isProtected={false} headContent={headContent} bodyStyles={{ backgroundColor: 'seagreen' }}>
+        <div>hi</div>
+        <Stack sx={{
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexGrow: 1
+        }}>
+          <form className= "wrapper" style={styles.form} onSubmit={handleFormSubmit}>
+            <h1 className="loginText">Login</h1>
+
+            <div className="input-box"> 
+            <input
+              placeholder="Email"
+              name="email"
+              type="email"
+              value={formState.email}
+              onChange={handleChange}
+            />
+            <FaUser className="icon"/>
+            </div>
+
+            <div className="input-box">
+            <input
+              placeholder="Password"
+              name="password"
+              type="password"
+              value={formState.password}
+              onChange={handleChange}
+            />
+            <FaLock className="icon"/>
+            </div>
+
+            <div className="remember-forgot">
+              <label >
+                <input 
+                type="checkbox" 
+                />
+                Remember me
+              </label>
+              <Link className="forgotLink"> Forgot password?
+              </Link>
+            </div>
+
+            {loading ? (
+              <button type="submit" disabled={true} style={styles.submitBtn}>
+                Loading...
+              </button>
+            ) : (
+              <button type="submit" style={styles.submitBtn}>
+                Login
+              </button>
+            )}
+            <div className="register-link">
+              <p className="pText">Don't have an account? <Link to={'/signup'} className="register"> Register</Link></p>
+            </div>
+          </form>
+        </Stack>
+        {error && <h3>{error.message}</h3>}
+      </Page>
   );
 }
