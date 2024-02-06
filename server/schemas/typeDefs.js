@@ -42,6 +42,7 @@ input JobInput {
     me: User
     findAllJobs: [Job]
     findSingleJob(id: ID!): Job
+    findAllJobByTags(tags: [String]) : [Job]
   }
 
   type Mutation {

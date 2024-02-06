@@ -19,15 +19,23 @@ const resolvers = {
       const singleJob = await Job.findById(id);
       return singleJob;
     },
-    // findAllTags: async (parent, args) => {
-    //   const tags = await Job.find({
-    //     where: {
-    //       tags: /tagName/i,
-    //     },
-    //     return tags;
-    //   });
+    findAllJobByTags: async (parent, args) => {
+      try {
+        const { tags } = args;
+        console.log("tagsArr", tags);
 
-    // }
+        const jobs = await Job.find({
+          where: {
+            tags: /tagName/i,
+          },
+        });
+
+        return jobs;
+      } catch (err) {
+        console.log(err);
+        return err;
+      }
+    },
   },
 
   Mutation: {
