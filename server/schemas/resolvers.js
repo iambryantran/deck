@@ -23,11 +23,10 @@ const resolvers = {
       try {
         const { tags } = args;
         console.log("tagsArr", tags);
+        const tagRegexArray = tags.map((tag) => new RegExp(tag, "i"));
 
         const jobs = await Job.find({
-          where: {
-            tags: /tagName/i,
-          },
+          tags: { $in: tagRegexArray },
         });
 
         return jobs;
