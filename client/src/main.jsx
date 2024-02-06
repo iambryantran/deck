@@ -11,6 +11,7 @@ import Dashboard from "./pages/Dashboard.jsx";
 import About from "./pages/About.jsx";
 import Gallery from "./pages/Gallery.jsx";
 import JobAddPage from "./pages/JobAddPage.jsx";
+import AddContactPage from "./pages/AddContactPage.jsx";
 import App from "./App.jsx";
 
 const router = createBrowserRouter([
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
       {
         path: "/addcontact",
         element: <AddContactPage />,
-      }
+      },
     ],
   },
 ]);
