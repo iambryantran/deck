@@ -14,6 +14,8 @@ const styles = {
   main: {
     paddingTop: "80px",
     flexGrow: "1",
+    display: 'flex',
+    flexDirection: 'column'
   },
 };
 
@@ -31,18 +33,21 @@ export default function Page({
   isProtected = false,
   headContent = defaultHeadContent,
   children,
+  bodyStyles = {}
 }) {
   const { isAuthenticated } = useSelector(getUser());
 
   return (
     <>
       <Helmet>{headContent}</Helmet>
-      <Header />
-      <div style={styles.container}>
-        <main style={styles.main}>
-          {isProtected && !isAuthenticated ? <div>Unauthorized</div> : children}
-        </main>
-        <Footer />
+      <div style={{...bodyStyles}}>
+        <Header />
+        <div style={styles.container}>
+          <main style={styles.main}>
+            {isProtected && !isAuthenticated ? <div>Unauthorized</div> : children}
+          </main>
+          <Footer />
+        </div>
       </div>
     </>
   );
