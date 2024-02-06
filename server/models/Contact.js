@@ -22,6 +22,10 @@ const contactSchema = new mongoose.Schema({
     },
     contactInfo: {
         type: String,
+    },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
 });
 

@@ -42,17 +42,5 @@ const startApolloServer = async () => {
   });
 };
 
-// Get all jobs that have not been applied to
-// TODO: Only allow users to see their own jobs
-app.get('/get-jobs', async (req, res) => {
-  try {
-    const jobs = await Job.find();
-    res.status(200).json(jobs);
-  } catch (err) {
-    console.log('Get jobs error: ', err);
-    res.status(500).json({ message: 'something went wrong' });
-  }
-});
-
 // Call the async function to start the server
 startApolloServer();

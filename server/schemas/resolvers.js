@@ -11,9 +11,19 @@ const resolvers = {
       }
       return await User.findById(context.user._id);
     },
-    findAllJobs: async (parent, args) => {
-      const jobs = await Job.find();
+    findAllJobs: async (parent, args, context) => {
+      if (!context.user) {
+        throw AuthenticationError;
+      }
+      const jobs = await Job.find({ user: context.user._id });
       return jobs;
+    },
+    findAllContacts: async (parent, args, context) => {
+      if (!context.user) {
+        throw AuthenticationError;
+      }
+      const contacts = await Contact.find({ user: context.user._id });
+      return contacts;
     },
     findSingleJob: async (parent, { id }) => {
       const singleJob = await Job.findById(id);
@@ -55,6 +65,17 @@ const resolvers = {
         }
         const job = await Job.create(args.job);
         return job;
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    addContact: async (parent, args, context) => {
+      try {
+        if (!context.user) {
+          throw AuthenticationError;
+        }
+        const contact = await Contact.create(args.contact);
+        return contact;
       } catch (err) {
         console.log(err);
       }

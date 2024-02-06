@@ -25,7 +25,12 @@ const jobSchema = new Schema({
   applied: {
     type: Boolean,
   },
-});
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
+  }
+);
 
 const Job = model("Job", jobSchema);
 
