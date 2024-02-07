@@ -55,8 +55,9 @@ input JobInput {
     me: User
     findAllJobs: [Job]
     findSingleJob(id: ID!): Job
-    findAllJobByTags(tags: [String]) : [Job]
+    findAllJobsByTags(tags: [String]) : [Job]
     findAllContacts: User
+
   }
 
   type Mutation {

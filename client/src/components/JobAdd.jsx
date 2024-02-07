@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 const JobAdd = () => {
     const [jobTitle, setJobTitle] = useState('');
+    const [companyName, setCompanyName] = useState('');
     const [description, setDescription] = useState('');
     const [location, setLocation] = useState('');
     const [salary, setSalary] = useState('');
@@ -19,6 +20,10 @@ const JobAdd = () => {
             <label>
                 Job Title:
                 <input type="text" value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} />
+            </label>
+            <label>
+                Company Name:
+                <input type="text" value={companyName} onChange={(e) => setCompanyName(e.target.value)} />
             </label>
             <label>
                 Description:
