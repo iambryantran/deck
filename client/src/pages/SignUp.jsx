@@ -82,7 +82,7 @@ export default function SignUp() {
   };
 
   if (isAuthenticated) {
-    return <Navigate to={"/dashboard"} />;
+    return <Navigate to={"/"} />;
   }
 
   return (
@@ -93,7 +93,7 @@ export default function SignUp() {
             sx={{
               marginTop: 8,
               display: 'flex',
-              backgroundColor: 'transparent',
+              backgroundColor: '#408C93',
               border: '2px solid rgba(255, 255, 255, .2)',
               backdropFilter: 'blur(30px)',
               // borderWidth: '1px',
@@ -110,14 +110,15 @@ export default function SignUp() {
             <Typography component="h1" variant="h5"
             sx={{
               fontSize: "36px",
-              marginBottom: '20px'
+              marginBottom: '20px',
+              color: '#fff'
             }}>
               Sign up
             </Typography>
-            <Box component="form" noValidate onSubmit={handleFormSubmit} sx={{ mt: 3 }} >
+            <Box component="form" noValidate onSubmit={handleFormSubmit} sx={{ mt: 3, color: '#fff',}} >
             {/* <form onSubmit={handleFormSubmit}> */}
               <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={6} sx={{ }}>
                   <TextField
                     autoComplete="given-name"
                     fullWidth
@@ -129,9 +130,12 @@ export default function SignUp() {
                     value={formState.firstName}
                     onChange={handleChange}
                     autoFocus
+                    sx={{ color: '#fff'}}
                     InputProps={{
                       style: {
                         borderRadius: "15px",
+                        color: 'white',
+                        borderColor: '#fff'
                       }
                     }}
                   />
@@ -151,6 +155,8 @@ export default function SignUp() {
                     InputProps={{
                       style: {
                         borderRadius: "15px",
+                        color: 'white',
+                        accentColor: '#fff'
                       }
                     }}
                   />
@@ -170,6 +176,8 @@ export default function SignUp() {
                     InputProps={{
                       style: {
                         borderRadius: "15px",
+                        color: 'white',
+                        accentColor: '#fff'
                       }
                     }}
                   />
@@ -190,6 +198,8 @@ export default function SignUp() {
                     InputProps={{
                       style: {
                         borderRadius: "15px",
+                        color: 'white',
+                        accentColor: '#fff'
                       }
                     }}
                   />
@@ -222,7 +232,7 @@ export default function SignUp() {
               </Button> */}
               <Grid container justifyContent="flex-end">
                 <Grid item>
-                  <Link to={"/login"} variant="body2">
+                  <Link to={"/login"} variant="body2" sx={{ color: '#fff'}}>
                     Already have an account? Sign in
                   </Link>
                 </Grid>
