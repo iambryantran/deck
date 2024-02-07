@@ -63,7 +63,7 @@ export default function Login() {
   };
 
   if (isAuthenticated) {
-    return <Navigate to={"/dashboard"} />;
+    return <Navigate to={"/"} />;
   }
 
   return (
