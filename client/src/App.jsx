@@ -44,7 +44,7 @@ function App() {
         <ThemeProvider theme={defaultTheme}>
         <CssBaseline />
           <Auth>
-            <Outlet />
+            <Outlet/>
           </Auth>
         </ThemeProvider>
         </Provider>

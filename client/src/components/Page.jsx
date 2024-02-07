@@ -1,6 +1,10 @@
 import { Helmet } from "react-helmet-async";
 import { useSelector } from "react-redux";
 import { getUser } from "../redux/slices/userSlice";
+import * as React from 'react';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+
 
 import Header from "./Header";
 import Footer from "./Footer";
@@ -15,7 +19,8 @@ const styles = {
     paddingTop: "80px",
     flexGrow: "1",
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    backgroundColor: '#235157'
   },
 };
 

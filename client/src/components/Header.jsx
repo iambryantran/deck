@@ -2,6 +2,14 @@ import { Link } from "react-router-dom";
 import AuthServices from "../utils/auth";
 import { useSelector } from "react-redux";
 import { getUser } from "../redux/slices/userSlice";
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const styles = {
   container: {
@@ -35,42 +43,56 @@ export default function Header() {
   };
 
   return (
-    <nav style={styles.container}>
-      <Link to={"/"} style={styles.undecoratedLink}>
-        <h1>Project-3 Starter Code</h1>
-      </Link>
-      <div style={styles.buttonDiv}>
-        {isAuthenticated && (
-          <Link to={"/about"}>
-            <button style={styles.button}>About</button>
-          </Link>
-        )}
-        {isAuthenticated && (
-          <Link to={"/dashboard"}>
-            <button style={styles.button}>Dashboard</button>
-          </Link>
-        )}
-        {isAuthenticated && (
-          <Link to={"/gallery"}>
-          <button style={styles.button}>Gallery</button>
-          </Link>
-        )}
-        {isAuthenticated && (
-          <button onClick={handleLogout} style={styles.button}>
-            Logout
-          </button>
-        )}
-        {!isAuthenticated && (
-          <Link to={"/signup"}>
-            <button style={styles.button}>Sign Up</button>
-          </Link>
-        )}
-        {!isAuthenticated && (
-          <Link to={"/login"}>
-            <button style={styles.button}>Login</button>
-          </Link>
-        )}
-      </div>
-    </nav>
+    <Box sx={{ flexGrow: 1 }}>
+    <AppBar position="static">
+        <Toolbar sx={{ backgroundColor: '#408C93'}}>
+        <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+        >
+            <MenuIcon />
+        </IconButton>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        Project-3 Starter Code
+        </Typography>
+        <div style={styles.buttonDiv}>
+              {isAuthenticated && (
+                <Link to={"/about"}>
+                  <Button sx={{color:'white' }} >About</Button>
+                </Link>
+              )}
+              {isAuthenticated && (
+                <Link to={"/dashboard"}>
+                  <Button sx={{color:'white' }} >Dashboard</Button>
+                </Link>
+              )}
+              {isAuthenticated && (
+                <Link to={"/gallery"}>
+                <Button sx={{color:'white' }} >Gallery</Button>
+                </Link>
+              )}
+              {isAuthenticated && (
+                <Button onClick={handleLogout} sx={{color:'white' }} >
+                  Logout
+                </Button>
+              )}
+              {!isAuthenticated && (
+                <Link to={"/signup"}> 
+                  <Button sx={{color:'white' }} >Sign Up</Button>
+                </Link>
+              )}
+              {!isAuthenticated && (
+                <Link to={"/login"}>
+                  <Button sx={{color:'white' }}
+                  >Login</Button>
+                </Link>
+              )}
+            </div>
+        </Toolbar>
+    </AppBar>
+    </Box>
   );
 }
