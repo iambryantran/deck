@@ -22,6 +22,19 @@ const typeDefs = `
     link: String
     applied: Boolean
 }
+
+type Contact {
+  _id: ID
+  name: String
+  title: String
+  location: String
+  website: String
+  skills: [String]
+  resume: String
+  contactInfo: String
+  user: User
+}
+
 input JobInput {    
   title: String
   company: String

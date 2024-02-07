@@ -1,4 +1,4 @@
-const { User, Job } = require("../models");
+const { User, Job , Contact } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 const { dateScalar } = require("./scalar");
 
