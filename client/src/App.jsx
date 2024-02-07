@@ -7,10 +7,15 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+
 
 import { HelmetProvider } from "react-helmet-async";
 import { Outlet } from "react-router-dom";
 import Auth from "./components/Auth";
+
+const defaultTheme = createTheme();
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -36,9 +41,12 @@ function App() {
     <ApolloProvider client={client}>
       <HelmetProvider>
         <Provider store={store}>
+        <ThemeProvider theme={defaultTheme}>
+        <CssBaseline />
           <Auth>
             <Outlet />
           </Auth>
+        </ThemeProvider>
         </Provider>
       </HelmetProvider>
     </ApolloProvider>
