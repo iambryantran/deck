@@ -55,13 +55,15 @@ input JobInput {
     me: User
     findAllJobs: [Job]
     findSingleJob(id: ID!): Job
-    findAllJobByTags(tags: [String]) : [Job]
+    findAllJobsByTags(tags: [String]) : [Job]
+    findAllContacts: User
   }
 
   type Mutation {
     addUser(firstName: String, lastName: String, email: String!, password: String!): Auth
     loginUser(email: String!, password: String!): Auth
     addJob(job: JobInput): Job
+    addContact: User
   }
 `;
 
