@@ -5,10 +5,18 @@ import { useSelector } from "react-redux";
 import { getUser } from "../redux/slices/userSlice";
 import { Navigate } from "react-router-dom";
 import * as React from 'react';
-// import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Grid from '@mui/material/Unstable_Grid2';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { FaUser, FaLock } from "react-icons/fa";
 
 
 
@@ -19,11 +27,11 @@ import AuthService from "../utils/auth";
 
 
 const styles = {
-  // form: {
-  //   display: "flex",
-  //   flexDirection: "Column",
-  //   width: "300px",
-  // },
+  form: {
+    display: "flex",
+    flexDirection: "Column",
+    width: "450px",
+  },
   submitBtn: {
     cursor: "pointer",
   },
@@ -79,75 +87,152 @@ export default function SignUp() {
 
   return (
     <Page isProtected={false} headContent={headContent} container>
-      <Grid container xs display="flex" justifyContent="center" alignItems="center" rowSpacing={1}
-        sx={{
-          '& > :not(style)': { m: 1 ,width: '35ch' },
-        }}
-      >
-
-        <form onSubmit={handleFormSubmit}>
-        <Grid alignItems="center">
-        <div >Sign Up</div>
-        </Grid>
-
-
-        <Grid item xs={15} md={12}>
-          {/* <label>First Name</label> */}
-        <TextField 
-          id="aa" label="First Name" variant="filled" size="small" 
-          placeholder="First Name"
-          name="firstName"
-          type="text"
-          value={formState.firstName}
-          onChange={handleChange}
-        />
-        </Grid>
-
-        <Grid item xs={15} md={12}>
-        {/* <label>Last Name</label> */}
-        <TextField id="ab" label="Last Name" variant="filled" size="small"
-          placeholder="Last Name"
-          name="lastName"
-          type="text"
-          value={formState.lastName}
-          onChange={handleChange}
-        />
-        </Grid>
-
-        <Grid item xs={15} md={12}>
-        {/* <label>Email</label> */}
-        <TextField id="ac" label="Email" variant="filled" size="small"
-          placeholder="Email"
-          name="email"
-          type="email"
-          value={formState.email}
-          onChange={handleChange}
-        />
-        </Grid>
-
-        <Grid item xs={15} md={12}>
-        {/* <label>Password </label> */}
-        <TextField id="ad" label="Password" variant="filled" size="small"
-          placeholder="Password"
-          name="password"
-          type="password"
-          value={formState.password}
-          onChange={handleChange}
-        />
-        </Grid>
-
-          {loading ? ( 
-          <Button type="submit" variant="contained" disabled={true} style={styles.submitBtn}>
-            Loading...
-          </Button>
-        ) : (
-          <Button type="submit" variant="contained" style={styles.submitBtn}>
-            Submit
-          </Button>
-        )}
-      </form>
-      </Grid>
+      <Container component="main" maxWidth="xs">
+          <Box
+          
+            sx={{
+              marginTop: 8,
+              display: 'flex',
+              backgroundColor: 'transparent',
+              border: '2px solid rgba(255, 255, 255, .2)',
+              backdropFilter: 'blur(30px)',
+              // borderWidth: '1px',
+              width: '420px',
+              borderRadius: '10px',
+              padding: '30px 40px',
+              // color: '#fff',
+              boxShadow: '0 0 10px  rgba(0, 0, 0, .2)',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}></Avatar>
+            <Typography component="h1" variant="h5"
+            sx={{
+              fontSize: "36px",
+              marginBottom: '20px'
+            }}>
+              Sign up
+            </Typography>
+            <Box component="form" noValidate onSubmit={handleFormSubmit} sx={{ mt: 3 }} >
+            {/* <form onSubmit={handleFormSubmit}> */}
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    autoComplete="given-name"
+                    fullWidth
+                    id="firstName"
+                    label="First Name"
+                    placeholder="First Name"
+                    name="firstName"
+                    type="text"
+                    value={formState.firstName}
+                    onChange={handleChange}
+                    autoFocus
+                    InputProps={{
+                      style: {
+                        borderRadius: "15px",
+                      }
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    fullWidth
+                    // variant="filled"
+                    id="lastName"
+                    label="Last Name"
+                    placeholder="Last Name"
+                    name="lastName"
+                    type="text"
+                    value={formState.lastName}
+                    onChange={handleChange}
+                    autoComplete="family-name"
+                    InputProps={{
+                      style: {
+                        borderRadius: "15px",
+                      }
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    fullWidth
+                    // variant="filled"
+                    id="email"
+                    label="Email"
+                    autoComplete="email"
+                    placeholder="Email"
+                    name="email"
+                    type="email"
+                    value={formState.email}
+                    onChange={handleChange}
+                    InputProps={{
+                      style: {
+                        borderRadius: "15px",
+                      }
+                    }}
+                  />
+                  <FaUser style={{ fontSize: '18px', position: 'absolute', top: '47%', right: '52px',}} />
+                </Grid>
+                <Grid item xs={12} >
+                  <TextField
+                    fullWidth
+                    id="password"
+                    // variant="filled"
+                    placeholder="Password"
+                    name="password"
+                    label="Password"
+                    type="password"
+                    value={formState.password}
+                    onChange={handleChange}
+                    autoComplete="new-password"
+                    InputProps={{
+                      style: {
+                        borderRadius: "15px",
+                      }
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <FormControlLabel
+                    control={<Checkbox value="allowExtraEmails" color="primary" />}
+                    label="I want to receive inspiration, marketing promotions and updates via email."
+                  />
+                </Grid>
+              </Grid>
+              {loading ? ( 
+                <Button fullWidth type="submit" variant="contained" sx={{ mt: 3, mb: 2 }} disabled={true} style={styles.submitBtn}>
+                  Loading...
+                </Button>
+                ) : (
+                <Button fullWidth type="submit" variant="contained" sx={{ mt: 3, mb: 2 }} style={styles.submitBtn}>
+                  Sign Up
+                </Button>
+              )}
+            {/* </form> */}
+              {/* <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+                borderRadius="40px"
+              >
+                Sign Up
+              </Button> */}
+              <Grid container justifyContent="flex-end">
+                <Grid item>
+                  <Link to={"/login"} variant="body2">
+                    Already have an account? Sign in
+                  </Link>
+                </Grid>
+              </Grid>
+            </Box>
+          </Box>
+          {/* </form> */}
+      </Container>
       {error && <h3>{error.message}</h3>}
     </Page>
   );
 }
+
