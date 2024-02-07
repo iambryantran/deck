@@ -12,7 +12,7 @@ const typeDefs = `
   }
 
   type Job {
-    _id: ID
+    _id: ID!
     title: String
     company: String
     location: String
@@ -21,6 +21,7 @@ const typeDefs = `
     tags: [String]
     link: String
     applied: Boolean
+    user: User
 }
 
 type Contact {
@@ -64,7 +65,7 @@ input JobInput {
     addUser(firstName: String, lastName: String, email: String!, password: String!): Auth
     loginUser(email: String!, password: String!): Auth
     addJob(job: JobInput): Job
-    addContact: User
+    addContact:(name: String!, title: String!, location: String!, website: String!, skills: [String]!, resume: String!, contactInfo: String!): User
   }
 `;
 
