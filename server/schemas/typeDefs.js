@@ -65,7 +65,7 @@ input JobInput {
     addUser(firstName: String, lastName: String, email: String!, password: String!): Auth
     loginUser(email: String!, password: String!): Auth
     addJob(job: JobInput): Job
-    addContact:(name: String!, title: String!, location: String!, website: String!, skills: [String]!, resume: String!, contactInfo: String!): User
+    addContact(name: String!, title: String!, location: String!, website: String!, skills: [String]!, resume: String!, contactInfo: String!): User
   }
 `;
 
