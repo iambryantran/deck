@@ -10,10 +10,9 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
+import {Link } from 'react-router-dom'
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { FaUser, FaLock } from "react-icons/fa";
@@ -106,7 +105,7 @@ export default function SignUp() {
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}></Avatar>
+            <Avatar sx={{ m: 1, bgcolor: 'black' }}></Avatar>
             <Typography component="h1" variant="h5"
             sx={{
               fontSize: "36px",
@@ -135,7 +134,8 @@ export default function SignUp() {
                       style: {
                         borderRadius: "15px",
                         color: 'white',
-                        borderColor: '#fff'
+                        borderColor: '#fff',
+                        backgroundColor: '#235157',
                       }
                     }}
                   />
@@ -156,7 +156,8 @@ export default function SignUp() {
                       style: {
                         borderRadius: "15px",
                         color: 'white',
-                        accentColor: '#fff'
+                        accentColor: '#fff',
+                        backgroundColor: '#235157',
                       }
                     }}
                   />
@@ -177,7 +178,8 @@ export default function SignUp() {
                       style: {
                         borderRadius: "15px",
                         color: 'white',
-                        accentColor: '#fff'
+                        accentColor: '#fff',
+                        backgroundColor: '#235157',
                       }
                     }}
                   />
@@ -199,7 +201,8 @@ export default function SignUp() {
                       style: {
                         borderRadius: "15px",
                         color: 'white',
-                        accentColor: '#fff'
+                        accentColor: '#fff',
+                        backgroundColor: '#235157',
                       }
                     }}
                   />
@@ -207,7 +210,7 @@ export default function SignUp() {
                 <Grid item xs={12}>
                   <FormControlLabel
                     control={<Checkbox value="allowExtraEmails" color="primary" />}
-                    label="I want to receive inspiration, marketing promotions and updates via email."
+                    label="I am 18 years of age or older and agree to the terms of the ......" sx={{color: 'white'}}
                   />
                 </Grid>
               </Grid>
@@ -216,7 +219,7 @@ export default function SignUp() {
                   Loading...
                 </Button>
                 ) : (
-                <Button fullWidth type="submit" variant="contained" sx={{ mt: 3, mb: 2 }} style={styles.submitBtn}>
+                <Button fullWidth type="submit" variant="contained" sx={{ mt: 3, mb: 2, backgroundColor: '#6DA5C0' }} style={styles.submitBtn}>
                   Sign Up
                 </Button>
               )}
