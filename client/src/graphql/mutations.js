@@ -31,3 +31,18 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_CONTACT = gql`
+  mutation addContactMutation($name: String!, $title: String!, $location: String!, $website: String!, $skills: [String]!, $resume: String!, $contactInfo: String!) {
+    addContact(name: $name, title: $title, location: $location, website: $website, skills: $skills, resume: $resume, contactInfo: $contactInfo) {
+      _id
+      name
+      title
+      location
+      website
+      skills
+      resume
+      contactInfo
+    }
+  }
+`
