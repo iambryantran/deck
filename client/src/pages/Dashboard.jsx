@@ -1,4 +1,6 @@
+import { useState } from "react";
 import Page from "../components/Page";
+import JobAdd from "../components/JobAdd";
 
 const headContent = (
   <>
@@ -8,9 +10,14 @@ const headContent = (
 );
 
 export default function Dashboard() {
+  const [showForm, setShowForm] = useState(false);
   return (
     <Page isProtected={true} headContent={headContent}>
       <div>Dashboard</div>
+      <button onClick={() => setShowForm(!showForm)}>
+        {!showForm ? "Add New Job" : " Hide Job Form"}
+      </button>
+      {showForm && <JobAdd />}
     </Page>
   );
 }

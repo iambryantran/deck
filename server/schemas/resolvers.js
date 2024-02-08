@@ -1,4 +1,4 @@
-const { User, Job , Contact } = require("../models");
+const { User, Job, Contact } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 const { dateScalar } = require("./scalar");
 
@@ -58,6 +58,7 @@ const resolvers = {
     },
     addJob: async (parent, args, context) => {
       try {
+        console.log(args);
         if (!context.user) {
           throw AuthenticationError;
         }
