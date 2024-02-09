@@ -25,9 +25,33 @@ const resolvers = {
       const contacts = await Contact.find({ user: context.user._id });
       return contacts;
     },
+    findAllJobsByLocation: async (parent, args) => {
+      try {
+        const { location } = args;
+        const jobs = await Job.find({ location });
+        return jobs;
+      } catch (err) {
+        console.log(err);
+        return err;
+      }
+    },
     findSingleJob: async (parent, { id }) => {
       const singleJob = await Job.findById(id);
       return singleJob;
+    },
+    findAllAppliedJobs: async (parent, args, context) => {
+      if (!context.user) {
+        throw AuthenticationError;
+      }
+      const jobs = await Job.find({ user: context.user._id, applied: true });
+      return jobs;
+    },
+    findAllNotAppliedJobs: async (parent, args, context) => {
+      if (!context.user) {
+        throw AuthenticationError;
+      }
+      const jobs = await Job.find({ user: context.user._id, applied: false });
+      return jobs;
     },
     findAllJobsByTags: async (parent, args) => {
       try {
