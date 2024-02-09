@@ -17,9 +17,9 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
+import AccountCircle from '@mui/icons-material/AccountCircle';
 
-const settings = ['Profile', 'Account', 'Logout'];
-const pages = ['Dashboard', 'Gallery', 'About'];
+
 
 
 
@@ -50,12 +50,28 @@ const styles = {
 
 
 export default function Header() {
-  const { isAuthenticated } = useSelector(getUser());
 
+  
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+  
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+  
+  
+  
+  const { isAuthenticated } = useSelector(getUser());
+  
   const handleLogout = (e) => {
     AuthServices.logout();
   };
-
+  
+  const settings = ['Profile', 'Account', 'Logout',];
+  
   return (
     <Box sx={{ flexGrow: 1 }}>
     <AppBar position="static">
@@ -73,41 +89,81 @@ export default function Header() {
         Project-3 Starter Code
         </Typography>
 
+              <div style={styles.buttonDiv}>
+            {!isAuthenticated && (
+              <Link to={"/signup"}> 
+                <Button sx={{color:'white' }} >Sign Up</Button>
+              </Link>
+            )}
+            {!isAuthenticated && (
+              <Link to={"/login"}>
+                <Button sx={{color:'white' }}
+                >Login</Button>
+              </Link>
+            )}
+          </div>  
 
-        
-        <div style={styles.buttonDiv}>
+          {isAuthenticated && (
+        <Box sx={{ flexGrow: 0, }} >
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, color:"inherit", size: "large"}}>
+                {/* <Avatar alt="Remy Sharp" src="" /> */}
+                <AccountCircle />
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '45px', justifyContent: 'end'}}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >        
+              {settings.map((setting) => (
+                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">{setting} </Typography>
+                </MenuItem>
+                
+                ))}
+                {/* <MenuItem  onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">
+                    <Button onClick={handleLogout} sx={{color:'inherit' }} >
+                    Logout
+                    </Button>
+                  </Typography>
+                </MenuItem> */}
+              </Menu>
               {isAuthenticated && (
-                <Link to={"/about"}>
-                  <Button sx={{color:'white' }} >About</Button>
-                </Link>
-              )}
-              {isAuthenticated && (
-                <Link to={"/dashboard"}>
-                  <Button sx={{color:'white' }} >Dashboard</Button>
-                </Link>
-              )}
-              {isAuthenticated && (
-                <Link to={"/gallery"}>
-                <Button sx={{color:'white' }} >Gallery</Button>
-                </Link>
-              )}
-              {isAuthenticated && (
+                  <Link to={"/about"}>
+                    <Button sx={{color:'white' }} >About</Button>
+                  </Link>
+                )}
+                {isAuthenticated && (
+                  <Link to={"/dashboard"}>
+                    <Button sx={{color:'white' }} >Dashboard</Button>
+                  </Link>
+                )}
+                {isAuthenticated && (
+                  <Link to={"/gallery"}>
+                  <Button sx={{color:'white' }} >Gallery</Button>
+                  </Link>
+                )}
+                {isAuthenticated && (
                 <Button onClick={handleLogout} sx={{color:'white' }} >
                   Logout
                 </Button>
               )}
-              {!isAuthenticated && (
-                <Link to={"/signup"}> 
-                  <Button sx={{color:'white' }} >Sign Up</Button>
-                </Link>
-              )}
-              {!isAuthenticated && (
-                <Link to={"/login"}>
-                  <Button sx={{color:'white' }}
-                  >Login</Button>
-                </Link>
-              )}
-            </div>
+
+            </Box>
+            )}
         </Toolbar>
     </AppBar>
     </Box>
