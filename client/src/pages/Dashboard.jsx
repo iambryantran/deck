@@ -11,6 +11,9 @@ import {
   TextField,
 } from "@mui/material";
 
+import AddContact from "../components/AddContact";
+
+
 const headContent = (
   <>
     <title>Career Cache</title>
@@ -20,6 +23,8 @@ const headContent = (
 
 export default function Dashboard() {
   const [showForm, setShowForm] = useState(false);
+  const [showContactForm, setShowContactForm] = useState(false);
+  
   return (
     <Page isProtected={true} headContent={headContent}>
       <h1>
@@ -29,6 +34,7 @@ export default function Dashboard() {
       <button onClick={() => setShowForm(!showForm)}>
         {!showForm ? "Add New Job" : " Hide Job Form"}
       </button>
+
       <Dialog open={showForm} onClose={() => setShowForm(false)}>
         <DialogTitle>Some Form</DialogTitle>
         <DialogContent>
@@ -45,6 +51,13 @@ export default function Dashboard() {
           <Button>Submit</Button>
         </DialogActions>
       </Dialog>
+
+      {showForm && <JobAdd />}
+      <button onClick={() => setShowContactForm(!showContactForm)}>
+        {!showContactForm ? "Add New Contact" : " Hide Contact Form"}
+      </button>
+      {showContactForm && <AddContact />}
+
     </Page>
   );
 }
