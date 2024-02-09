@@ -62,6 +62,8 @@ export default function Header() {
 
   const settings = ["Profile", "Account", "Logout"];
 
+  // small change for git
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
