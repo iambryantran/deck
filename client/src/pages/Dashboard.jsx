@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Page from "../components/Page";
 import JobAdd from "../components/JobAdd";
+import AddContact from "../components/AddContact";
 
 const headContent = (
   <>
@@ -11,6 +12,8 @@ const headContent = (
 
 export default function Dashboard() {
   const [showForm, setShowForm] = useState(false);
+  const [showContactForm, setShowContactForm] = useState(false);
+  
   return (
     <Page isProtected={true} headContent={headContent}>
       <div>Dashboard</div>
@@ -18,6 +21,10 @@ export default function Dashboard() {
         {!showForm ? "Add New Job" : " Hide Job Form"}
       </button>
       {showForm && <JobAdd />}
+      <button onClick={() => setShowContactForm(!showContactForm)}>
+        {!showContactForm ? "Add New Contact" : " Hide Contact Form"}
+      </button>
+      {showContactForm && <AddContact />}
     </Page>
   );
 }
