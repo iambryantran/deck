@@ -9,26 +9,13 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu"
+import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-import List from "@mui/material/List";
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import InfoIcon from '@mui/icons-material/Info';
-import BrowseGalleryIcon from '@mui/icons-material/BrowseGallery';
-
 
 import AccountCircle from "@mui/icons-material/AccountCircle";
 
@@ -57,25 +44,6 @@ const styles = {
 };
 
 export default function Header() {
-
-
-  const [state, setState] = React.useState({
-    left: false,
-  });
-
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (
-      event &&
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
-
-    setState({ ...state, [anchor]: open });
-  };
-
-
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenUserMenu = (event) => {
@@ -94,57 +62,7 @@ export default function Header() {
 
   const settings = ["Profile", "Account", "Logout"];
 
-
-
-  const list = (anchor) => (
-    <Box
-      sx={{}}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
-      <List>
-        <ListItem>
-          <ListItemButton>
-            <ListItemIcon>
-              <InfoIcon />
-            </ListItemIcon>
-              <Link to={"/about"}>
-                <Button sx={{ color: "black" }}>About</Button>
-              </Link>
-          </ListItemButton>
-        </ListItem>
-      </List>
-
-      <List>
-        <ListItem>
-          <ListItemButton>
-            <ListItemIcon>
-            <DashboardIcon sx={{ color: 'inherit'}}/>
-            </ListItemIcon>
-              <Link to={"/dashboard"}>
-                <Button sx={{ color: "black" }}>Dashboard</Button>
-              </Link>
-          </ListItemButton>
-        </ListItem>
-      </List>
-
-      <List>
-        <ListItem>
-          <ListItemButton>
-            <ListItemIcon>
-              <BrowseGalleryIcon />
-            </ListItemIcon>
-              <Link to={"/gallery"}>
-                <Button sx={{ color: "black" }}>Gallery</Button>
-              </Link>
-          </ListItemButton>
-        </ListItem>
-      </List>
-      <Divider />
-    </Box>
-  );
-
+  // small change for git
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -157,36 +75,10 @@ export default function Header() {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Career Cache
-
-           {isAuthenticated && (
-              <div>
-                <MenuIcon />
-                {["left"].map((anchor) => (
-                  <React.Fragment key={anchor}>
-                    <Button onClick={toggleDrawer(anchor, true)}>
-                      {anchor}
-                    </Button>
-                    <SwipeableDrawer
-                      anchor={anchor}
-                      open={state[anchor]}
-                      onClose={toggleDrawer(anchor, false)}
-                      onOpen={toggleDrawer(anchor, true)}
-                    >
-                      {list(anchor)}
-                    </SwipeableDrawer>
-                  </React.Fragment>
-                ))}
-              </div>
-            )}
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Project-3 Starter Code
-
           </Typography>
 
           <div style={styles.buttonDiv}>
@@ -207,7 +99,6 @@ export default function Header() {
               <Tooltip title="Open settings">
                 <IconButton
                   onClick={handleOpenUserMenu}
-
                   sx={{ p: 0, color: "inherit", size: "large" }}
                 >
                   {/* <Avatar alt="Remy Sharp" src="" /> */}
@@ -216,15 +107,6 @@ export default function Header() {
               </Tooltip>
               <Menu
                 sx={{ mt: "45px", justifyContent: "end" }}
-
-                  sx={{ p: 0, color: "inherit" }}
-                >
-                  <AccountCircle sx={{ fontSize: "36px" }} />
-                </IconButton>
-              </Tooltip>
-              <Menu
-                sx={{ mt: "45px" }}
-
                 id="menu-appbar"
                 anchorEl={anchorElUser}
                 anchorOrigin={{
@@ -239,7 +121,6 @@ export default function Header() {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-
                 {settings.map((setting) => (
                   <MenuItem key={setting} onClick={handleCloseUserMenu}>
                     <Typography textAlign="center">{setting} </Typography>
@@ -248,15 +129,11 @@ export default function Header() {
                 {/* <MenuItem  onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">
                     <Button onClick={handleLogout} sx={{color:'inherit' }} >
-
-                <MenuItem onClick={handleCloseUserMenu}>
-                  <Button onClick={handleLogout} sx={{ color: "inherit" }}>
-
                     Logout
-                  </Button>
-                </MenuItem>
+                    </Button>
+                  </Typography>
+                </MenuItem> */}
               </Menu>
-
               {isAuthenticated && (
                 <Link to={"/dashboard"}>
                   <Button sx={{ color: "white" }}>Dashboard</Button>
@@ -277,8 +154,6 @@ export default function Header() {
                   Logout
                 </Button>
               )}
-
-
             </Box>
           )}
         </Toolbar>
