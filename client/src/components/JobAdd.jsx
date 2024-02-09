@@ -45,17 +45,17 @@ const JobAdd = () => {
         },
       });
       console.log(data);
-      if(data.addJob){
+      if (data.addJob) {
         setFormState({
-            jobTitle: "",
-            companyName: "",
-            description: "",
-            location: "",
-            salary: "",
-            directLink: "",
-            tags: "",
-            applied: false,
-          })
+          jobTitle: "",
+          companyName: "",
+          description: "",
+          location: "",
+          salary: "",
+          directLink: "",
+          tags: "",
+          applied: false,
+        });
       }
     }
   };

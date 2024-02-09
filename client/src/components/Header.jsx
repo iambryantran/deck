@@ -9,7 +9,13 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
+import MenuIcon from "@mui/icons-material/Menu"
+import Container from "@mui/material/Container";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
+import MenuItem from "@mui/material/MenuItem";
+import AdbIcon from "@mui/icons-material/Adb";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
@@ -22,6 +28,7 @@ import List from "@mui/material/List";
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import InfoIcon from '@mui/icons-material/Info';
 import BrowseGalleryIcon from '@mui/icons-material/BrowseGallery';
+
 
 import AccountCircle from "@mui/icons-material/AccountCircle";
 
@@ -50,6 +57,8 @@ const styles = {
 };
 
 export default function Header() {
+
+
   const [state, setState] = React.useState({
     left: false,
   });
@@ -65,6 +74,7 @@ export default function Header() {
 
     setState({ ...state, [anchor]: open });
   };
+
 
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -83,6 +93,8 @@ export default function Header() {
   };
 
   const settings = ["Profile", "Account", "Logout"];
+
+
 
   const list = (anchor) => (
     <Box
@@ -133,6 +145,7 @@ export default function Header() {
     </Box>
   );
 
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -144,7 +157,13 @@ export default function Header() {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            {isAuthenticated && (
+
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Career Cache
+
+           {isAuthenticated && (
               <div>
                 <MenuIcon />
                 {["left"].map((anchor) => (
@@ -167,6 +186,7 @@ export default function Header() {
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Project-3 Starter Code
+
           </Typography>
 
           <div style={styles.buttonDiv}>
@@ -187,6 +207,16 @@ export default function Header() {
               <Tooltip title="Open settings">
                 <IconButton
                   onClick={handleOpenUserMenu}
+
+                  sx={{ p: 0, color: "inherit", size: "large" }}
+                >
+                  {/* <Avatar alt="Remy Sharp" src="" /> */}
+                  <AccountCircle />
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: "45px", justifyContent: "end" }}
+
                   sx={{ p: 0, color: "inherit" }}
                 >
                   <AccountCircle sx={{ fontSize: "36px" }} />
@@ -194,6 +224,7 @@ export default function Header() {
               </Tooltip>
               <Menu
                 sx={{ mt: "45px" }}
+
                 id="menu-appbar"
                 anchorEl={anchorElUser}
                 anchorOrigin={{
@@ -208,12 +239,46 @@ export default function Header() {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
+
+                {settings.map((setting) => (
+                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">{setting} </Typography>
+                  </MenuItem>
+                ))}
+                {/* <MenuItem  onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">
+                    <Button onClick={handleLogout} sx={{color:'inherit' }} >
+
                 <MenuItem onClick={handleCloseUserMenu}>
                   <Button onClick={handleLogout} sx={{ color: "inherit" }}>
+
                     Logout
                   </Button>
                 </MenuItem>
               </Menu>
+
+              {isAuthenticated && (
+                <Link to={"/dashboard"}>
+                  <Button sx={{ color: "white" }}>Dashboard</Button>
+                </Link>
+              )}
+              {isAuthenticated && (
+                <Link to={"/about"}>
+                  <Button sx={{ color: "white" }}>About</Button>
+                </Link>
+              )}
+              {isAuthenticated && (
+                <Link to={"/gallery"}>
+                  <Button sx={{ color: "white" }}>Gallery</Button>
+                </Link>
+              )}
+              {isAuthenticated && (
+                <Button onClick={handleLogout} sx={{ color: "white" }}>
+                  Logout
+                </Button>
+              )}
+
+
             </Box>
           )}
         </Toolbar>
