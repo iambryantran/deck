@@ -103,6 +103,12 @@ const resolvers = {
         console.log(err);
       }
     },
+    removeJob: async (parent, { id }) => {
+      return Job.findOneAndDelete({ id });
+    },
+    removeContact: async (parent, { id }) => {
+      return Contact.findOneAndDelete({ id });
+    },
     loginUser: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
       console.log("user", user);

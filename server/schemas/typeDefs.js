@@ -25,7 +25,7 @@ const typeDefs = `
 }
 
 type Contact {
-  _id: ID
+  _id: ID!
   name: String
   title: String
   location: String
@@ -47,6 +47,16 @@ input JobInput {
   applied: Boolean
 }
 
+input ContactInput {
+  name: String
+  title: String
+  location: String
+  website: String
+  skills: [String]
+  resume: String
+  contactInfo: String
+}
+
   type Auth {
     token: ID!
     user: User
@@ -57,7 +67,7 @@ input JobInput {
     findAllJobs: [Job]
     findSingleJob(id: ID!): Job
     findAllJobsByTags(tags: [String]) : [Job]
-    findAllContacts: User
+    findAllContacts: [Contact]
     findAllJobsByLocation(location: String): [Job]
     findAllAppliedJobs(applied: Boolean): [Job]
     findAllNotAppliedJobs(applied: Boolean): [Job]
@@ -67,7 +77,9 @@ input JobInput {
     addUser(firstName: String, lastName: String, email: String!, password: String!): Auth
     loginUser(email: String!, password: String!): Auth
     addJob(job: JobInput): Job
-    addContact(name: String!, title: String!, location: String!, website: String!, skills: [String]!, resume: String!, contactInfo: String!): User
+    addContact(contact: ContactInput): Contact
+    removeJob(id: ID!): Job
+    removeContact(id: ID!): Contact
   }
 `;
 
