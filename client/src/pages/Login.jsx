@@ -4,7 +4,7 @@ import { LOGIN_USER } from "../graphql/mutations";
 import { useSelector } from "react-redux";
 import { getUser } from "../redux/slices/userSlice";
 import { Navigate } from "react-router-dom";
-import "../Styles/LoginForm.css";
+// import "../Styles/LoginForm.css";
 import { Link } from "react-router-dom";
 import { FaUser, FaLock } from "react-icons/fa";
 // import { Stack } from '@mui/material';
@@ -77,33 +77,29 @@ export default function Login() {
   }
 
   return (
-    <Page
-      isProtected={false}
-      headContent={headContent}
-      bodyStyles={{ backgroundColor: "seagreen" }}
-    >
-      <Container component="main" maxWidth="xs">
-        <Box
-          sx={{
-            marginTop: 8,
-            display: "flex",
-            backgroundColor: "#408C93",
-            border: "2px solid rgba(255, 255, 255, .2)",
-            backdropFilter: "blur(30px)",
-            // borderWidth: '1px',
-            width: "420px",
-            borderRadius: "10px",
-            padding: "30px 40px",
-            // color: '#fff',
-            boxShadow: "0 0 10px  rgba(0, 0, 0, .2)",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: "black" }}></Avatar>
-          <Typography
-            component="h1"
-            variant="h5"
+
+      <Page isProtected={false} headContent={headContent} bodyStyles={{ backgroundColor: 'seagreen' }}> 
+        <Container component="main" maxWidth="xs">
+          <Box
+            
+            sx={{
+              marginTop: 8,
+              display: 'flex',
+              backgroundColor: '#408C93',
+              border: '2px solid rgba(255, 255, 255, .2)',
+              backdropFilter: 'blur(30px)',
+              // borderWidth: '1px',
+              width: '420px',
+              borderRadius: '10px',
+              padding: '30px 40px',
+              // color: '#fff',
+              boxShadow: '0 0 10px  rgba(0, 0, 0, .2)',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          > 
+            <Avatar sx={{ m: 1, bgcolor: 'black' }}></Avatar>
+            <Typography component="h1" variant="h5"
             sx={{
               fontSize: "36px",
               marginBottom: "20px",

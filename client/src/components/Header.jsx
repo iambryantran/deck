@@ -10,14 +10,22 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
+import HomeIcon from "@mui/icons-material/Home";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import BrowseGalleryIcon from "@mui/icons-material/BrowseGallery";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import InfoIcon from "@mui/icons-material/Info";
+import Drawer from '@mui/material/Drawer';
 
 import AccountCircle from "@mui/icons-material/AccountCircle";
+import Home from "../pages/Home";
 
 const styles = {
   container: {
@@ -44,6 +52,21 @@ const styles = {
 };
 
 export default function Header() {
+  const [state, setState] = React.useState({
+    left: false,
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenUserMenu = (event) => {
@@ -60,9 +83,69 @@ export default function Header() {
     AuthServices.logout();
   };
 
-  const settings = ["Profile", "Account", "Logout"];
+  // const settings = ["Profile", "Account", "Logout"];
 
-  // small change for git
+  const list = (anchor) => (
+    <Box
+      sx={{}}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+            <List>
+        <ListItem>
+          <ListItemButton>
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+            <Link to={"/"}>
+              <Button sx={{ color: "black" }}>Home</Button>
+            </Link>
+          </ListItemButton>
+        </ListItem>
+      </List>
+      <Divider />
+      <List>
+        <ListItem>
+          <ListItemButton>
+            <ListItemIcon>
+              <DashboardIcon sx={{ color: "inherit" }} />
+            </ListItemIcon>
+            <Link to={"/dashboard"}>
+              <Button sx={{ color: "black" }}>Dashboard</Button>
+            </Link>
+          </ListItemButton>
+        </ListItem>
+      </List>
+
+      <List>
+        <ListItem>
+          <ListItemButton>
+            <ListItemIcon>
+              <BrowseGalleryIcon />
+            </ListItemIcon>
+            <Link to={"/gallery"}>
+              <Button sx={{ color: "black" }}>Gallery</Button>
+            </Link>
+          </ListItemButton>
+        </ListItem>
+      </List>
+
+      <List>
+        <ListItem>
+          <ListItemButton>
+            <ListItemIcon>
+              <InfoIcon />
+            </ListItemIcon>
+            <Link to={"/about"}>
+              <Button sx={{ color: "black" }}>About</Button>
+            </Link>
+          </ListItemButton>
+        </ListItem>
+      </List>
+
+    </Box>
+  );
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -75,7 +158,23 @@ export default function Header() {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            <MenuIcon />
+            {isAuthenticated &&(
+            <div>
+              {["left"].map((anchor) => (
+                <React.Fragment key={anchor}>
+                  <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+                  <Drawer
+                    anchor={anchor}
+                    open={state[anchor]}
+                    onClose={toggleDrawer(anchor, false)}
+                  >
+                    {list(anchor)}
+                  </Drawer>
+                </React.Fragment>
+              ))}
+              <MenuIcon />
+            </div>
+            )}
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Career Cache
@@ -121,39 +220,19 @@ export default function Header() {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                {settings.map((setting) => (
+                {/* {settings.map((setting) => (
                   <MenuItem key={setting} onClick={handleCloseUserMenu}>
                     <Typography textAlign="center">{setting} </Typography>
                   </MenuItem>
-                ))}
-                {/* <MenuItem  onClick={handleCloseUserMenu}>
+                ))} */}
+                <MenuItem onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">
-                    <Button onClick={handleLogout} sx={{color:'inherit' }} >
-                    Logout
+                    <Button onClick={handleLogout} sx={{ color: "inherit" }}>
+                      Logout
                     </Button>
                   </Typography>
-                </MenuItem> */}
+                </MenuItem>
               </Menu>
-              {isAuthenticated && (
-                <Link to={"/dashboard"}>
-                  <Button sx={{ color: "white" }}>Dashboard</Button>
-                </Link>
-              )}
-              {isAuthenticated && (
-                <Link to={"/about"}>
-                  <Button sx={{ color: "white" }}>About</Button>
-                </Link>
-              )}
-              {isAuthenticated && (
-                <Link to={"/gallery"}>
-                  <Button sx={{ color: "white" }}>Gallery</Button>
-                </Link>
-              )}
-              {isAuthenticated && (
-                <Button onClick={handleLogout} sx={{ color: "white" }}>
-                  Logout
-                </Button>
-              )}
             </Box>
           )}
         </Toolbar>

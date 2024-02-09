@@ -45,7 +45,7 @@ export default function Page({
   return (
     <>
       <Helmet>{headContent}</Helmet>
-      <div style={{...bodyStyles}}>
+      <div >
         <Header />
         <div style={styles.container}>
           <main style={styles.main}>
