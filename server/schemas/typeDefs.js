@@ -58,6 +58,7 @@ input JobInput {
     findSingleJob(id: ID!): Job
     findAllJobsByTags(tags: [String]) : [Job]
     findAllContacts: User
+    findAllJobsByLocation(location: String): [Job]
 
   }
 
