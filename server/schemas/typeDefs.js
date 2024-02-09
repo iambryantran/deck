@@ -59,7 +59,8 @@ input JobInput {
     findAllJobsByTags(tags: [String]) : [Job]
     findAllContacts: User
     findAllJobsByLocation(location: String): [Job]
-
+    findAllAppliedJobs(applied: Boolean): [Job]
+    findAllNotAppliedJobs(applied: Boolean): [Job]
   }
 
   type Mutation {
