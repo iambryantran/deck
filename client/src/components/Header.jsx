@@ -9,7 +9,6 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
@@ -83,8 +82,6 @@ export default function Header() {
     AuthServices.logout();
   };
 
-  // const settings = ["Profile", "Account", "Logout"];
-
   const list = (anchor) => (
     <Box
       sx={{}}
@@ -143,7 +140,6 @@ export default function Header() {
           </ListItemButton>
         </ListItem>
       </List>
-
     </Box>
   );
 
@@ -172,7 +168,7 @@ export default function Header() {
                   </Drawer>
                 </React.Fragment>
               ))}
-              <MenuIcon />
+              {/* <MenuIcon /> */}
             </div>
             )}
           </IconButton>
@@ -181,11 +177,11 @@ export default function Header() {
           </Typography>
 
           <div style={styles.buttonDiv}>
-            {!isAuthenticated && (
+            {/* {!isAuthenticated && (
               <Link to={"/signup"}>
                 <Button sx={{ color: "white" }}>Sign Up</Button>
               </Link>
-            )}
+            )} */}
             {!isAuthenticated && (
               <Link to={"/login"}>
                 <Button sx={{ color: "white" }}>Login</Button>
