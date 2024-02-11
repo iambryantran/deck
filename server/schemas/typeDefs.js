@@ -71,6 +71,9 @@ input ContactInput {
     findAllJobsByLocation(location: String): [Job]
     findAllAppliedJobs(applied: Boolean): [Job]
     findAllNotAppliedJobs(applied: Boolean): [Job]
+    findAllContactsByLocation(location: String) : [Contact]
+    findAllAppliedJobsNotRejected: User
+    
   }
 
   type Mutation {
