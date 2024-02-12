@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Page from "../components/Page";
+import CardComponent from "../components/dashboardCard"
 // import JobAdd from "../components/JobAdd";
 import {
   Dialog,
@@ -11,6 +12,7 @@ import {
   TextField,
   Container,
   Box,
+  Typography,
 } from "@mui/material";
 
 // import AddContact from "../components/AddContact";
@@ -29,10 +31,25 @@ export default function Dashboard() {
   return (
     <Page isProtected={true} headContent={headContent}>
       <Container maxWidth="lg">
-        <h1>
+        <Box sx={{
+            p: 3,
+            m: 3,
+            minWidth: 300,
+        }}>
+          <Box sx={{display: "flex", justifyContent: "space-between"}}>
+        <Typography variant="h4" sx={{maxWidth: 500}}>
           Welcome to your job Library. Here you can store all your job
           applications in one place or add new connections.{" "}
-        </h1>
+        </Typography>
+        <Typography variant="subtitle1" sx={{maxWidth: 400}}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Accusantium, dolor saepe. Nulla culpa aliquid cumque impedit odio
+            eaque dolore sint non quam deserunt eligendi dolor vel ea officia,
+            delectus nam accusantium, laborum maiores ab quibusdam temporibus.
+            Culpa est sapiente quasi quam corporis aspernatur suscipit
+            voluptatem, ad, eos fugiat, necessitatibus dolorem.
+        </Typography>
+          </Box>
         <Button variant="contained" onClick={() => setShowForm(!showForm)}>
           {!showForm ? "Add New Job" : " Hide Job Form"}
         </Button>
@@ -84,8 +101,15 @@ export default function Dashboard() {
             <Button>Submit</Button>
           </DialogActions>
         </Dialog>
+        <Box sx={{ display: "flex", justifyContent: "space-between", marginTop: 15,
+        }}>
+        <CardComponent />
+        <CardComponent />
+        <CardComponent />
+        </Box>
 
         {/* {showContactForm && <AddContact />} */}
+        </Box>
       </Container>
     </Page>
   );
