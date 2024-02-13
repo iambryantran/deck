@@ -22,6 +22,7 @@ import BrowseGalleryIcon from "@mui/icons-material/BrowseGallery";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import InfoIcon from "@mui/icons-material/Info";
 import Drawer from '@mui/material/Drawer';
+import MenuIcon from '@mui/icons-material/Menu';
 
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import Home from "../pages/Home";
@@ -157,9 +158,12 @@ export default function Header() {
             {isAuthenticated &&(
             <div>
               {["left"].map((anchor) => (
-                <React.Fragment key={anchor}>
-                  <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+                <React.Fragment key={anchor} >
+                  <Button onClick={toggleDrawer(anchor, true)} sx={{fontSize: "0"}}>
+                    <MenuIcon  sx={{color: "#fff"}}/>
+                    {anchor}</Button>
                   <Drawer
+                    type= ""
                     anchor={anchor}
                     open={state[anchor]}
                     onClose={toggleDrawer(anchor, false)}

@@ -14,8 +14,8 @@ export default function Gallery() {
     <Page isProtected={true} headContent={headContent}>
       <Container maxWidth="xl">
         <Box sx={{ textAlign: "center", color: "#fff" }}>
+          <GroupsIcon sx={{ fontSize: "50px"}}/>
           <h1>Meet the Developers</h1>
-          {/* <GroupsIcon sx={{ fontSize: "50px"}}/> */}
         </Box>
         <Stack
           direction="row"
