@@ -4,16 +4,17 @@ import CardComponent from "../components/dashboardCard";
 import JobAdd from "../components/JobAdd";
 import AddContact from "../components/AddContact";
 import {
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
+  // Dialog,
+  // DialogActions,
+  // DialogContent,
+  // DialogTitle,
   Button,
-  Stack,
-  TextField,
+  // Stack,
+  // TextField,
   Container,
   Box,
   Typography,
+  Stack,
 } from "@mui/material";
 
 const headContent = (
@@ -38,11 +39,14 @@ export default function Dashboard() {
           }}
         >
           <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-            <Typography variant="h4" sx={{ maxWidth: 500, color: '#fff', }}>
+            <Typography variant="h4" sx={{ maxWidth: 500, color: "#fff" }}>
               Welcome to your job Library. Here you can store all your job
               applications in one place or add new connections.{" "}
             </Typography>
-            <Typography variant="subtitle1" sx={{ maxWidth: 400, color: '#fff', }}>
+            <Typography
+              variant="subtitle1"
+              sx={{ maxWidth: 400, color: "#fff" }}
+            >
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Accusantium, dolor saepe. Nulla culpa aliquid cumque impedit odio
               eaque dolore sint non quam deserunt eligendi dolor vel ea officia,
@@ -51,44 +55,34 @@ export default function Dashboard() {
               voluptatem, ad, eos fugiat, necessitatibus dolorem.
             </Typography>
           </Box>
-          <Button variant="contained" onClick={() => setShowForm(!showForm)}>
-            {!showForm ? "Add New Job" : " Hide Job Form"}
-          </Button>
+          <Box>
+            <Stack spacing={2} direction="row">
+              <Button
+                sx={{ background: "#fff", color: "rgb(35, 81, 87)" }}
+                variant="contained"
+                size="large"
+                onClick={() => setShowForm(!showForm)}
+              >
+                {!showForm ? "Add New Job" : " Hide Job Form"}
+              </Button>
 
-          <JobAdd open={showForm} onClose={() => setShowForm(false)} />
+              <JobAdd open={showForm} onClose={() => setShowForm(false)} />
 
-          {/* {showForm && <JobAdd />} */}
-
-          <Button
-            variant="contained"
-            onClick={() => setShowContactForm(!showContactForm)}
-          >
-            {!showContactForm ? "Add New Contact" : " Hide Contact Form"}
-          </Button>
+              <Button
+                sx={{ background: "#fff", color: "rgb(35, 81, 87)" }}
+                variant="contained"
+                size="large"
+                onClick={() => setShowContactForm(!showContactForm)}
+              >
+                {!showContactForm ? "Add New Contact" : " Hide Contact Form"}
+              </Button>
+            </Stack>
+          </Box>
           <AddContact
             open={showContactForm}
             onClose={() => setShowContactForm(false)}
           />
-          {/* <Dialog
-            open={showContactForm}
-            onClose={() => setShowContactForm(false)}
-          >
-            <DialogTitle>New Contact</DialogTitle>
-            <DialogContent>
-              <Stack spacing={2}>
-                <Stack direction={"row"} spacing={2}>
-                  <TextField variant="outlined" label="Contact Name" />
-                  <TextField variant="outlined" label="Title" />
-                </Stack>
-                <TextField variant="outlined" label="Location" />
-                <TextField variant="outlined" label="Website" />
-                <TextField variant="outlined" label="Contact Info" />
-              </Stack>
-            </DialogContent>
-            <DialogActions>
-              <Button>Submit</Button>
-            </DialogActions>
-          </Dialog> */}
+
           <Box
             sx={{
               display: "flex",
@@ -96,12 +90,10 @@ export default function Dashboard() {
               marginTop: 15,
             }}
           >
-            <CardComponent image='/public/workimg1.png'/>
-            <CardComponent image='/public/workimg2.png'/>
-            <CardComponent image='/public/workimg3.png'/>
+            <CardComponent image="/workimg1.png" />
+            <CardComponent image="/workimg2.png" />
+            <CardComponent image="/workimg3.png" />
           </Box>
-
-          {/* {showContactForm && <AddContact />} */}
         </Box>
       </Container>
     </Page>
