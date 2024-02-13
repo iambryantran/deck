@@ -23,8 +23,6 @@ const headContent = (
   </>
 );
 
-const dashboardCardImgs = [];
-
 export default function Dashboard() {
   const [showForm, setShowForm] = useState(false);
   const [showContactForm, setShowContactForm] = useState(false);
@@ -40,11 +38,11 @@ export default function Dashboard() {
           }}
         >
           <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-            <Typography variant="h4" sx={{ maxWidth: 500, color: '#fff', }}>
+            <Typography variant="h4" sx={{ maxWidth: 500 }}>
               Welcome to your job Library. Here you can store all your job
               applications in one place or add new connections.{" "}
             </Typography>
-            <Typography variant="subtitle1" sx={{ maxWidth: 400,color: '#fff', }}>
+            <Typography variant="subtitle1" sx={{ maxWidth: 400 }}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Accusantium, dolor saepe. Nulla culpa aliquid cumque impedit odio
               eaque dolore sint non quam deserunt eligendi dolor vel ea officia,
@@ -98,9 +96,9 @@ export default function Dashboard() {
               marginTop: 15,
             }}
           >
-            <CardComponent />
-            <CardComponent />
-            <CardComponent />
+            <CardComponent image='/public/workimg1.png'/>
+            <CardComponent image='/public/workimg2.png'/>
+            <CardComponent image='/public/workimg3.png'/>
           </Box>
 
           {/* {showContactForm && <AddContact />} */}
