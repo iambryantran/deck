@@ -44,6 +44,15 @@ const JobAdd = ({ open, onClose }) => {
     } catch (e) {
       console.error(e);
     }
+
+    setFormState({
+      title: '',
+      company: '',
+      location: '',
+      salary: '',
+      link: '',
+    });
+
   }
 
   return (
@@ -93,7 +102,7 @@ const JobAdd = ({ open, onClose }) => {
           </Stack>
         </DialogContent>
         <DialogActions>
-          <Button type="submit">Submit</Button>
+          <Button type="submit" onClick={onClose}>Submit</Button>
         </DialogActions>
       </form>
     </Dialog>
