@@ -144,6 +144,8 @@ export default function Header() {
     </Box>
   );
 
+  // small change for git
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
