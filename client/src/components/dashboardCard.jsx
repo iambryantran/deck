@@ -5,14 +5,16 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 
-export default function CardComponent() {
+export default function CardComponent(props) {
+    const {image} = props;
+    
     return (
         <Card sx={{ maxWidth: 345, bgcolor: "#408C93", color: "#fff"}}>
         <CardActionArea>
             <CardMedia
             component="img"
             height="200"
-            image=""
+            image={image}
             alt=""
             />
             <CardContent>
