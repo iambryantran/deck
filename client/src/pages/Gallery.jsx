@@ -1,5 +1,6 @@
 import Page from "../components/Page";
 import JobCard from "../components/JobCard";
+import { Box } from "@mui/material";
 
 const headContent = (
   <>
@@ -12,7 +13,9 @@ export default function Gallery() {
   return (
     <Page isProtected={true} headContent={headContent}>
       <div>Gallery Page</div>
-      <JobCard />
+      <Box>
+        <JobCard />
+      </Box>
     </Page>
   );
 }
