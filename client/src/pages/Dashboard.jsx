@@ -23,6 +23,8 @@ const headContent = (
   </>
 );
 
+const dashboardCardImgs = [];
+
 export default function Dashboard() {
   const [showForm, setShowForm] = useState(false);
   const [showContactForm, setShowContactForm] = useState(false);
