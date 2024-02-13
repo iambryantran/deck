@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Page from "../components/Page";
-import CardComponent from "../components/dashboardCard"
-// import JobAdd from "../components/JobAdd";
+import CardComponent from "../components/dashboardCard";
+import JobAdd from "../components/JobAdd";
 import {
   Dialog,
   DialogActions,
@@ -31,84 +31,74 @@ export default function Dashboard() {
   return (
     <Page isProtected={true} headContent={headContent}>
       <Container maxWidth="lg">
-        <Box sx={{
+        <Box
+          sx={{
             p: 3,
             m: 3,
             minWidth: 300,
-        }}>
-          <Box sx={{display: "flex", justifyContent: "space-between"}}>
-        <Typography variant="h4" sx={{maxWidth: 500}}>
-          Welcome to your job Library. Here you can store all your job
-          applications in one place or add new connections.{" "}
-        </Typography>
-        <Typography variant="subtitle1" sx={{maxWidth: 400}}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Accusantium, dolor saepe. Nulla culpa aliquid cumque impedit odio
-            eaque dolore sint non quam deserunt eligendi dolor vel ea officia,
-            delectus nam accusantium, laborum maiores ab quibusdam temporibus.
-            Culpa est sapiente quasi quam corporis aspernatur suscipit
-            voluptatem, ad, eos fugiat, necessitatibus dolorem.
-        </Typography>
+          }}
+        >
+          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+            <Typography variant="h4" sx={{ maxWidth: 500 }}>
+              Welcome to your job Library. Here you can store all your job
+              applications in one place or add new connections.{" "}
+            </Typography>
+            <Typography variant="subtitle1" sx={{ maxWidth: 400 }}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Accusantium, dolor saepe. Nulla culpa aliquid cumque impedit odio
+              eaque dolore sint non quam deserunt eligendi dolor vel ea officia,
+              delectus nam accusantium, laborum maiores ab quibusdam temporibus.
+              Culpa est sapiente quasi quam corporis aspernatur suscipit
+              voluptatem, ad, eos fugiat, necessitatibus dolorem.
+            </Typography>
           </Box>
-        <Button variant="contained" onClick={() => setShowForm(!showForm)}>
-          {!showForm ? "Add New Job" : " Hide Job Form"}
-        </Button>
+          <Button variant="contained" onClick={() => setShowForm(!showForm)}>
+            {!showForm ? "Add New Job" : " Hide Job Form"}
+          </Button>
 
-        {/* <JobAdd /> */}
-        <Dialog open={showForm} onClose={() => setShowForm(false)}>
-          <DialogTitle>New Job</DialogTitle>
-          <DialogContent>
-            <Stack spacing={2}>
-              <Stack direction={"row"} spacing={2}>
-                <TextField variant="outlined" label="Job Title" />
-                <TextField variant="outlined" label="Company Name" />
+          <JobAdd open={showForm} onClose={() => setShowForm(false)} />
+
+          {/* {showForm && <JobAdd />} */}
+
+          <Button
+            variant="contained"
+            onClick={() => setShowContactForm(!showContactForm)}
+          >
+            {!showContactForm ? "Add New Contact" : " Hide Contact Form"}
+          </Button>
+          <Dialog
+            open={showContactForm}
+            onClose={() => setShowContactForm(false)}
+          >
+            <DialogTitle>New Contact</DialogTitle>
+            <DialogContent>
+              <Stack spacing={2}>
+                <Stack direction={"row"} spacing={2}>
+                  <TextField variant="outlined" label="Contact Name" />
+                  <TextField variant="outlined" label="Title" />
+                </Stack>
+                <TextField variant="outlined" label="Location" />
+                <TextField variant="outlined" label="Website" />
+                <TextField variant="outlined" label="Contact Info" />
               </Stack>
-              <TextField variant="outlined" label="Location" />
-              <TextField variant="outlined" label="Salary" />
-              <TextField variant="outlined" label="Link" />
-            </Stack>
-          </DialogContent>
-          <DialogActions>
-            <Button>Submit</Button>
-          </DialogActions>
-        </Dialog>
+            </DialogContent>
+            <DialogActions>
+              <Button>Submit</Button>
+            </DialogActions>
+          </Dialog>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginTop: 15,
+            }}
+          >
+            <CardComponent />
+            <CardComponent />
+            <CardComponent />
+          </Box>
 
-        {/* {showForm && <JobAdd />} */}
-
-        <Button
-          variant="contained"
-          onClick={() => setShowContactForm(!showContactForm)}
-        >
-          {!showContactForm ? "Add New Contact" : " Hide Contact Form"}
-        </Button>
-        <Dialog
-          open={showContactForm}
-          onClose={() => setShowContactForm(false)}
-        >
-          <DialogTitle>New Contact</DialogTitle>
-          <DialogContent>
-            <Stack spacing={2}>
-              <Stack direction={"row"} spacing={2}>
-                <TextField variant="outlined" label="Contact Name" />
-                <TextField variant="outlined" label="Title" />
-              </Stack>
-              <TextField variant="outlined" label="Location" />
-              <TextField variant="outlined" label="Website" />
-              <TextField variant="outlined" label="Contact Info" />
-            </Stack>
-          </DialogContent>
-          <DialogActions>
-            <Button>Submit</Button>
-          </DialogActions>
-        </Dialog>
-        <Box sx={{ display: "flex", justifyContent: "space-between", marginTop: 15,
-        }}>
-        <CardComponent />
-        <CardComponent />
-        <CardComponent />
-        </Box>
-
-        {/* {showContactForm && <AddContact />} */}
+          {/* {showContactForm && <AddContact />} */}
         </Box>
       </Container>
     </Page>
