@@ -29,14 +29,21 @@ const resolvers = {
       if (!context.user) {
         throw AuthenticationError;
       }
-      const contacts = await Contact.find({ user: context.user._id, location: args.location });
+      const contacts = await Contact.find({
+        user: context.user._id,
+        location: args.location,
+      });
       return contacts;
     },
     findAllAppliedJobsNotRejected: async (parent, args, context) => {
       if (!context.user) {
         throw AuthenticationError;
       }
-      const jobs = await Job.find({ user: context.user._id, applied: true, rejected: false });
+      const jobs = await Job.find({
+        user: context.user._id,
+        applied: true,
+        rejected: false,
+      });
       return jobs;
     },
     findAllJobsByLocation: async (parent, args) => {
@@ -100,8 +107,11 @@ const resolvers = {
         if (!context.user) {
           throw AuthenticationError;
         }
-        const job = await Job.create(args.job);
-        console.log(job)
+        const job = await Job.create({
+          ...args.job,
+          user: context.user._id,
+        });
+        console.log(job);
         return job;
       } catch (err) {
         console.log(err);
