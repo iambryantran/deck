@@ -2,6 +2,7 @@ import { useState } from "react";
 import Page from "../components/Page";
 import CardComponent from "../components/dashboardCard";
 import JobAdd from "../components/JobAdd";
+import AddContact from "../components/AddContact";
 import {
   Dialog,
   DialogActions,
@@ -14,8 +15,6 @@ import {
   Box,
   Typography,
 } from "@mui/material";
-
-// import AddContact from "../components/AddContact";
 
 const headContent = (
   <>
@@ -66,7 +65,11 @@ export default function Dashboard() {
           >
             {!showContactForm ? "Add New Contact" : " Hide Contact Form"}
           </Button>
-          <Dialog
+          <AddContact
+            open={showContactForm}
+            onClose={() => setShowContactForm(false)}
+          />
+          {/* <Dialog
             open={showContactForm}
             onClose={() => setShowContactForm(false)}
           >
@@ -85,7 +88,7 @@ export default function Dashboard() {
             <DialogActions>
               <Button>Submit</Button>
             </DialogActions>
-          </Dialog>
+          </Dialog> */}
           <Box
             sx={{
               display: "flex",
