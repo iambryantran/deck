@@ -39,7 +39,7 @@ const JobCard = ({ jobData }) => {
                 display: "flex",
                 justifyContent: "space-between"
             }}>
-            <a href={link}>Apply</a>
+            <a href={link} target='_blank' rel="noopener noreferrer">Apply</a>
             <label>
             <input type="checkbox" checked={applied} />
             Applied

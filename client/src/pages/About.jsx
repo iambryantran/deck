@@ -1,6 +1,7 @@
 import Page from "../components/Page";
 import { Avatar, Stack, Container, Box } from "@mui/material";
 import GroupsIcon from "@mui/icons-material/Groups";
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const headContent = (
   <>
@@ -62,7 +63,8 @@ export default function Gallery() {
               src="/pikachu.png"
               sx={{ width: 120, height: 120 }}
             />
-            Brandon Lambrecht
+            Brandon Lambrecht 
+          <a href="https://github.com/brandonlambrecht"><GitHubIcon /></a>
           </h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -91,7 +93,8 @@ export default function Gallery() {
               src="/charzard.jpg"
               sx={{ width: 120, height: 120 }}
             />
-            Bryan Tran
+            Bryan Tran 
+          <a href="https://github.com/iambryantran"> <GitHubIcon /></a>
           </h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -120,7 +123,8 @@ export default function Gallery() {
               src="/vapo.webp"
               sx={{ width: 120, height: 120 }}
             />
-            Dalton Fussell
+            Dalton Fussell 
+          <a href="https://github.com/dfussell1"> <GitHubIcon /></a>
           </h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -149,7 +153,8 @@ export default function Gallery() {
               src="/ev.jpg"
               sx={{ width: 120, height: 120 }}
             />
-            Sepan Mustafa
+            Sepan Mustafa 
+          <a href="https://github.com/Sepan09"> <GitHubIcon /></a>
           </h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
