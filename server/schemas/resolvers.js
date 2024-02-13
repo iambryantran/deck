@@ -25,6 +25,20 @@ const resolvers = {
       const contacts = await Contact.find({ user: context.user._id });
       return contacts;
     },
+    findAllContactsByLocation: async (parent, args, context) => {
+      if (!context.user) {
+        throw AuthenticationError;
+      }
+      const contacts = await Contact.find({ user: context.user._id, location: args.location });
+      return contacts;
+    },
+    findAllAppliedJobsNotRejected: async (parent, args, context) => {
+      if (!context.user) {
+        throw AuthenticationError;
+      }
+      const jobs = await Job.find({ user: context.user._id, applied: true, rejected: false });
+      return jobs;
+    },
     findAllJobsByLocation: async (parent, args) => {
       try {
         const { location } = args;

@@ -96,3 +96,51 @@ export const ADD_JOB = gql`
     }
   }
 `;
+
+export const UPDATE_JOB = gql`
+  mutation updateJob($id: ID, $applied: Boolean) {
+    updateJob(id: $id, applied: $applied) {
+      _id
+      title
+      company
+      location
+      description
+      salary
+      tags
+      link
+      applied
+      user {
+        _id
+        firstName
+        lastName
+        email
+        createdAt
+        updatedAt
+      }
+    }
+  }
+`;
+
+export const DELETE_JOB = gql`
+  mutation deleteJob($id: ID) {
+    deleteJob(id: $id) {
+      _id
+      title
+      company
+      location
+      description
+      salary
+      tags
+      link
+      applied
+      user {
+        _id
+        firstName
+        lastName
+        email
+        createdAt
+        updatedAt
+      }
+    }
+  }
+`;
