@@ -85,14 +85,6 @@ export const ADD_JOB = gql`
       tags
       link
       applied
-      user {
-        _id
-        firstName
-        lastName
-        email
-        createdAt
-        updatedAt
-      }
     }
   }
 `;

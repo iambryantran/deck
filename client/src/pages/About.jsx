@@ -59,7 +59,7 @@ export default function Gallery() {
           <h2>
             <Avatar
               alt="Brandon Lambrecht"
-              src="/public/pikachu.png"
+              src="/pikachu.png"
               sx={{ width: 120, height: 120 }}
             />
             Brandon Lambrecht
@@ -88,7 +88,7 @@ export default function Gallery() {
           <h2>
             <Avatar
               alt="Bryan Tran"
-              src="/public/charzard.jpg"
+              src="/charzard.jpg"
               sx={{ width: 120, height: 120 }}
             />
             Bryan Tran
@@ -117,7 +117,7 @@ export default function Gallery() {
           <h2>
             <Avatar
               alt="Dalton Fussell"
-              src="/public/vapo.webp"
+              src="/vapo.webp"
               sx={{ width: 120, height: 120 }}
             />
             Dalton Fussell
@@ -146,7 +146,7 @@ export default function Gallery() {
           <h2>
             <Avatar
               alt="Sepan Mustafa"
-              src="/public/ev.jpg"
+              src="/ev.jpg"
               sx={{ width: 120, height: 120 }}
             />
             Sepan Mustafa

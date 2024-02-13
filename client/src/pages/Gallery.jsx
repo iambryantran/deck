@@ -1,6 +1,8 @@
 import Page from "../components/Page";
 import JobCard from "../components/JobCard";
 import { Box } from "@mui/material";
+import { useQuery } from "@apollo/client";
+import { FIND_JOBS } from "../graphql/queries";
 
 const headContent = (
   <>
@@ -10,11 +12,19 @@ const headContent = (
 );
 
 export default function Gallery() {
+  const { loading, data } = useQuery(FIND_JOBS);
+
+  console.log(data);
+
   return (
     <Page isProtected={true} headContent={headContent}>
       <div>Gallery Page</div>
       <Box>
-        <JobCard />
+        {data ? (
+          data.findAllJobs.map((job) => <JobCard key={job._id} jobData={job} />)
+        ) : (
+          <div>loading</div>
+        )}
       </Box>
     </Page>
   );

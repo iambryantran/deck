@@ -4,6 +4,23 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions } from '@mui/material';
 
+const JobCard = ({ jobData }) => {
+  const { title, company, location, salary, tags, link, applied } = jobData;
+
+  return (
+    <div className="job-card">
+      <h2>{title}</h2>
+      <p>Company: {company}</p>
+      <p>Location: {location}</p>
+      <p>Salary: {salary}</p>
+      {/* <p>Tags: {tags.join(', ')}</p> */}
+      <a href={link}>Apply</a>
+      <label>
+        <input type="checkbox" checked={applied} />
+        Applied
+      </label>
+    </div>
+  );
 const JobCard = ({ title, company, location, salary, tags, link, applied }) => {
     return (
         <Card sx={{ maxWidth: 345, bgcolor: "#408C93", color: "#fff" }}>

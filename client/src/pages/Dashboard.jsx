@@ -2,6 +2,7 @@ import { useState } from "react";
 import Page from "../components/Page";
 import CardComponent from "../components/dashboardCard";
 import JobAdd from "../components/JobAdd";
+import AddContact from "../components/AddContact";
 import {
   Dialog,
   DialogActions,
@@ -15,14 +16,14 @@ import {
   Typography,
 } from "@mui/material";
 
-// import AddContact from "../components/AddContact";
-
 const headContent = (
   <>
     <title>Career Cache</title>
     <meta name="description" content="This is the home page of my app." />
   </>
 );
+
+const dashboardCardImgs = [];
 
 export default function Dashboard() {
   const [showForm, setShowForm] = useState(false);
@@ -66,7 +67,11 @@ export default function Dashboard() {
           >
             {!showContactForm ? "Add New Contact" : " Hide Contact Form"}
           </Button>
-          <Dialog
+          <AddContact
+            open={showContactForm}
+            onClose={() => setShowContactForm(false)}
+          />
+          {/* <Dialog
             open={showContactForm}
             onClose={() => setShowContactForm(false)}
           >
@@ -85,7 +90,7 @@ export default function Dashboard() {
             <DialogActions>
               <Button>Submit</Button>
             </DialogActions>
-          </Dialog>
+          </Dialog> */}
           <Box
             sx={{
               display: "flex",
