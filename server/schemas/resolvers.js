@@ -101,6 +101,7 @@ const resolvers = {
           throw AuthenticationError;
         }
         const job = await Job.create(args.job);
+        console.log(job)
         return job;
       } catch (err) {
         console.log(err);
