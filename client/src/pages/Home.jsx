@@ -83,7 +83,7 @@ export default function Home() {
                 </Button>
             </Link>
             </Box>
-            <Box sx={{}} variant="woven" cols={3} gap={8}>
+            <Box sx={{display: "flex"}} variant="woven" cols={3} gap={8}>
               {itemData.map((item) => (
                 <ImageListItem key={item.img}>
                   <img

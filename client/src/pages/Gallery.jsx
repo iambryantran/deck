@@ -18,8 +18,13 @@ export default function Gallery() {
 
   return (
     <Page isProtected={true} headContent={headContent}>
-      <div>Gallery Page</div>
-      <Box>
+      <Box sx={{
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+          minWidth: 300,
+          p:2,
+            m:2}}>
         {data ? (
           data.findAllJobs.map((job) => <JobCard key={job._id} jobData={job} />)
         ) : (
