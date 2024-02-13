@@ -12,6 +12,8 @@ import {
 } from "@mui/material";
 
 const AddContact = ({ open, onClose }) => {
+  const [addContact, { error }] = useMutation(ADD_CONTACT);
+
   const [formState, setFormState] = useState({
     name: "",
     company: "",
@@ -22,44 +24,57 @@ const AddContact = ({ open, onClose }) => {
     contactInfo: "",
   });
 
-  const [addContact, { error }] = useMutation(ADD_CONTACT);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const { name, company, location, website, skills, resume, contactInfo } =
-      formState;
-
-    if (name && contactInfo) {
-      const { data } = addContact({
-        variables: {
-          name,
-          company,
-          location,
-          website,
-          skills: skills.split(",").map((skill) => skill.trim()),
-          resume,
-          contactInfo,
-        },
-      });
-      console.log(data);
-      if (data.addContact) {
-        setFormState({
-          name: "",
-          company: "",
-          location: "",
-          website: "",
-          skills: "",
-          resume: "",
-          contactInfo: "",
-        });
-      }
-    }
-  };
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormState({ ...formState, [name]: value });
   };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    console.log(formState);
+
+    try {
+      const { data } = await addContact({
+        variables: { contact: {
+          ...formState
+        }}
+      })
+    } catch (error) {
+      console.error(error);
+    }
+    // e.preventDefault();
+
+    // const { name, company, location, website, skills, resume, contactInfo } =
+    //   formState;
+
+    // if (name && contactInfo) {
+    //   const { data } = addContact({
+    //     variables: {
+    //       name,
+    //       company,
+    //       location,
+    //       website,
+    //       skills: skills.split(",").map((skill) => skill.trim()),
+    //       resume,
+    //       contactInfo,
+    //     },
+    //   });
+    //   console.log(data);
+    //   if (data.addContact) {
+    //     setFormState({
+    //       name: "",
+    //       company: "",
+    //       location: "",
+    //       website: "",
+    //       skills: "",
+    //       resume: "",
+    //       contactInfo: "",
+    //     });
+    //   }
+    // }
+  };
+
 
   return (
     <Dialog open={open} onClose={onClose}>
