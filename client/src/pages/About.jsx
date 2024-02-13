@@ -1,6 +1,6 @@
 import Page from "../components/Page";
 import { Avatar, Stack, Container, Box } from "@mui/material";
-import GroupsIcon from '@mui/icons-material/Groups';
+import GroupsIcon from "@mui/icons-material/Groups";
 
 const headContent = (
   <>
@@ -13,7 +13,7 @@ export default function Gallery() {
   return (
     <Page isProtected={true} headContent={headContent}>
       <Container maxWidth="xl">
-        <Box sx={{textAlign: "center", color: "#fff",}}>
+        <Box sx={{ textAlign: "center", color: "#fff" }}>
           <h1>Meet the Developers</h1>
           {/* <GroupsIcon sx={{ fontSize: "50px"}}/> */}
         </Box>
@@ -62,8 +62,8 @@ export default function Gallery() {
               src="/public/pikachu.png"
               sx={{ width: 120, height: 120 }}
             />
-              Brandon Lambrecht
-            </h2>
+            Brandon Lambrecht
+          </h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Accusantium, dolor saepe. Nulla culpa aliquid cumque impedit odio
@@ -91,8 +91,8 @@ export default function Gallery() {
               src="/public/charzard.jpg"
               sx={{ width: 120, height: 120 }}
             />
-              Bryan Tran
-            </h2>
+            Bryan Tran
+          </h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Accusantium, dolor saepe. Nulla culpa aliquid cumque impedit odio
@@ -118,10 +118,10 @@ export default function Gallery() {
             <Avatar
               alt="Dalton Fussell"
               src="/public/vapo.webp"
-              sx={{ width: 120, height: 120,}}
+              sx={{ width: 120, height: 120 }}
             />
-              Dalton Fussell
-            </h2>
+            Dalton Fussell
+          </h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Accusantium, dolor saepe. Nulla culpa aliquid cumque impedit odio
@@ -146,11 +146,11 @@ export default function Gallery() {
           <h2>
             <Avatar
               alt="Sepan Mustafa"
-              src="/public/evee.png"
+              src="/public/ev.jpg"
               sx={{ width: 120, height: 120 }}
             />
-              Sepan Mustafa
-            </h2>
+            Sepan Mustafa
+          </h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Accusantium, dolor saepe. Nulla culpa aliquid cumque impedit odio
