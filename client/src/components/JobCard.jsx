@@ -1,6 +1,8 @@
 import React from "react";
 
-const JobCard = ({ title, company, location, salary, tags, link, applied }) => {
+const JobCard = ({ jobData }) => {
+  const { title, company, location, salary, tags, link, applied } = jobData;
+
   return (
     <div className="job-card">
       <h2>{title}</h2>
