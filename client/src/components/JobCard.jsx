@@ -22,18 +22,18 @@ const JobCard = ({ jobData }) => {
                 backgroundColor: "#408C93",
                 m:2 ,
             }}>
-            <Typography sx={{
+            {/* <Typography sx={{
                 display: "flex",
                 justifyContent: "space-between"
             }}> 
             <p>Company: {company}</p>
             <p>Location: {location}</p>
-            </Typography>
+            </Typography> */}
             <Typography sx={{textAlign: "center"}}>
             <h2>{title}</h2>
             </Typography>
-            {/* <p>Company: {company}</p>
-            <p>Location: {location}</p> */}
+            <p>Company: {company}</p>
+            <p>Location: {location}</p>
             <p>Salary: {salary}</p>
             <Typography sx={{
                 display: "flex",
