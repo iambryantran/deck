@@ -29,6 +29,7 @@ const JobAdd = ({ open, onClose }) => {
     const { name, value } = e.target;
     setFormState({ ...formState, [name]: value });
   };
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
 
