@@ -2,6 +2,8 @@ import Page from "../components/Page";
 import { Avatar, Stack, Container, Box } from "@mui/material";
 import GroupsIcon from "@mui/icons-material/Groups";
 import GitHubIcon from '@mui/icons-material/GitHub';
+import EmailIcon from '@mui/icons-material/Email';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const headContent = (
   <>
@@ -61,10 +63,15 @@ export default function Gallery() {
             <Avatar
               alt="Brandon Lambrecht"
               src="/pikachu.png"
-              sx={{ width: 120, height: 120 }}
+              sx={{ width: 120, height: 120,  }}
             />
             Brandon Lambrecht 
-          <a href="https://github.com/brandonlambrecht"><GitHubIcon /></a>
+            <Box sx={{display: "flex", justifyContent: "space-around", maxWidth: "125px"}}>
+          <a href="https://github.com/brandonlambrecht"><GitHubIcon sx={{color: "black", fontSize: "30px", display: "flex", alignItems: "flex-end"}}/></a>
+          <a href=""><EmailIcon sx={{color: "black", fontSize: "30px", display: "flex", alignItems: "flex-end"}}/></a>
+          <a href="https://www.linkedin.com/in/brandon-lambrecht-0b3709a3/"><LinkedInIcon sx={{color: "black", fontSize: "30px", display: "flex", alignItems: "flex-end"}}/></a>
+
+            </Box>
           </h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -94,7 +101,12 @@ export default function Gallery() {
               sx={{ width: 120, height: 120 }}
             />
             Bryan Tran 
-          <a href="https://github.com/iambryantran"> <GitHubIcon /></a>
+            <Box sx={{display: "flex", justifyContent: "space-around", maxWidth: "125px"}}>
+          <a href="https://github.com/iambryantran"> <GitHubIcon sx={{color: "black", fontSize: "30px", display: "flex", alignItems: "flex-end"}}/></a>
+          <a href=""><EmailIcon sx={{color: "black", fontSize: "30px", display: "flex", alignItems: "flex-end"}}/></a>
+          <a href="https://www.linkedin.com/in/bryanntran/"><LinkedInIcon sx={{color: "black", fontSize: "30px", display: "flex", alignItems: "flex-end"}}/></a>
+
+            </Box>
           </h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -124,7 +136,12 @@ export default function Gallery() {
               sx={{ width: 120, height: 120 }}
             />
             Dalton Fussell 
-          <a href="https://github.com/dfussell1"> <GitHubIcon /></a>
+            <Box sx={{display: "flex", justifyContent: "space-around", maxWidth: "125px"}}>
+          <a href="https://github.com/dfussell1"> <GitHubIcon sx={{color: "black", fontSize: "30px", display: "flex", alignItems: "flex-end"}}/></a>
+          <a href=""><EmailIcon sx={{color: "black", fontSize: "30px", display: "flex", alignItems: "flex-end"}}/></a>
+          <a href="https://www.linkedin.com/in/dalton-fussell-838387209/"><LinkedInIcon sx={{color: "black", fontSize: "30px", display: "flex", alignItems: "flex-end"}}/></a>
+
+            </Box>
           </h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -154,7 +171,12 @@ export default function Gallery() {
               sx={{ width: 120, height: 120 }}
             />
             Sepan Mustafa 
-          <a href="https://github.com/Sepan09"> <GitHubIcon /></a>
+            <Box sx={{display: "flex", justifyContent: "space-around", maxWidth: "125px"}}>
+            <a href="https://github.com/Sepan09"> <GitHubIcon sx={{color: "black", fontSize: "30px", display: "flex", alignItems: "flex-end"}}/></a>
+            <a href=""><EmailIcon sx={{color: "black", fontSize: "30px", display: "flex", alignItems: "flex-end"}}/></a>
+            <a href="https://www.linkedin.com/in/sepan-mustafa-73b0412a4/"><LinkedInIcon sx={{color: "black", fontSize: "30px", display: "flex", alignItems: "flex-end"}}/></a>
+
+            </Box>
           </h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
