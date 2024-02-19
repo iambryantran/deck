@@ -4,13 +4,7 @@ import CardComponent from "../components/dashboardCard";
 import JobAdd from "../components/JobAdd";
 import AddContact from "../components/AddContact";
 import {
-  // Dialog,
-  // DialogActions,
-  // DialogContent,
-  // DialogTitle,
   Button,
-  // Stack,
-  // TextField,
   Container,
   Box,
   Typography,
@@ -40,19 +34,14 @@ export default function Dashboard() {
         >
           <Box sx={{ display: "flex", justifyContent: "space-between" }}>
             <Typography variant="h4" sx={{ maxWidth: 500, color: "#fff" }}>
-              Welcome to your job Library. Here you can store all your job
+              Welcome to your ob Library. Here you can store all your job
               applications in one place or add new connections.{" "}
             </Typography>
             <Typography
               variant="subtitle1"
               sx={{ maxWidth: 400, color: "#fff" }}
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Accusantium, dolor saepe. Nulla culpa aliquid cumque impedit odio
-              eaque dolore sint non quam deserunt eligendi dolor vel ea officia,
-              delectus nam accusantium, laborum maiores ab quibusdam temporibus.
-              Culpa est sapiente quasi quam corporis aspernatur suscipit
-              voluptatem, ad, eos fugiat, necessitatibus dolorem.
+              Newly added jobs and contacts will appear in the Gallery. 
             </Typography>
           </Box>
           <Box>

@@ -23,9 +23,7 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import InfoIcon from "@mui/icons-material/Info";
 import Drawer from '@mui/material/Drawer';
 import MenuIcon from '@mui/icons-material/Menu';
-
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import Home from "../pages/Home";
 
 const styles = {
   container: {
@@ -144,8 +142,6 @@ export default function Header() {
     </Box>
   );
 
-  // small change for git
-
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -174,7 +170,6 @@ export default function Header() {
                   </Drawer>
                 </React.Fragment>
               ))}
-              {/* <MenuIcon /> */}
             </div>
             )}
           </IconButton>
@@ -183,11 +178,6 @@ export default function Header() {
           </Typography>
 
           <div style={styles.buttonDiv}>
-            {/* {!isAuthenticated && (
-              <Link to={"/signup"}>
-                <Button sx={{ color: "white" }}>Sign Up</Button>
-              </Link>
-            )} */}
             {!isAuthenticated && (
               <Link to={"/login"}>
                 <Button sx={{ color: "white" }}>Login</Button>
@@ -222,11 +212,6 @@ export default function Header() {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                {/* {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{setting} </Typography>
-                  </MenuItem>
-                ))} */}
                 <MenuItem onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">
                     <Button onClick={handleLogout} sx={{ color: "inherit" }}>

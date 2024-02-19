@@ -16,14 +16,8 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { FaUser, FaLock } from "react-icons/fa";
-
-
-
 import Page from "../components/Page";
 import AuthService from "../utils/auth";
-
-
-
 
 const styles = {
   form: {
@@ -41,7 +35,7 @@ const headContent = (
     <title>Sign Up</title>
     <meta
       name="description"
-      content="Sign Up page for Project-3 Starter Code."
+      content="Sign Up Page."
     />
   </>
 );
@@ -95,11 +89,9 @@ export default function SignUp() {
               backgroundColor: '#408C93',
               border: '2px solid rgba(255, 255, 255, .2)',
               backdropFilter: 'blur(30px)',
-              // borderWidth: '1px',
               width: '420px',
               borderRadius: '10px',
               padding: '30px 40px',
-              // color: '#fff',
               boxShadow: '0 0 10px  rgba(0, 0, 0, .2)',
               flexDirection: 'column',
               alignItems: 'center',
@@ -112,10 +104,9 @@ export default function SignUp() {
               marginBottom: '20px',
               color: '#fff'
             }}>
-              Sign up
+              Sign Up
             </Typography>
             <Box component="form" noValidate onSubmit={handleFormSubmit} sx={{ mt: 3, color: '#fff',}} >
-            {/* <form onSubmit={handleFormSubmit}> */}
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6} sx={{ }}>
                   <TextField
@@ -143,7 +134,6 @@ export default function SignUp() {
                 <Grid item xs={12} sm={6}>
                   <TextField
                     fullWidth
-                    // variant="filled"
                     id="lastName"
                     label="Last Name"
                     placeholder="Last Name"
@@ -165,7 +155,6 @@ export default function SignUp() {
                 <Grid item xs={12}>
                   <TextField
                     fullWidth
-                    // variant="filled"
                     id="email"
                     label="Email"
                     autoComplete="email"
@@ -189,7 +178,6 @@ export default function SignUp() {
                   <TextField
                     fullWidth
                     id="password"
-                    // variant="filled"
                     placeholder="Password"
                     name="password"
                     label="Password"
@@ -223,26 +211,16 @@ export default function SignUp() {
                   Sign Up
                 </Button>
               )}
-            {/* </form> */}
-              {/* <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-                borderRadius="40px"
-              >
-                Sign Up
-              </Button> */}
               <Grid container justifyContent="flex-end">
                 <Grid item>
+                  <p>Already have an account? </p>
                   <Link to={"/login"} variant="body2" sx={{ color: '#fff'}}>
-                    Already have an account? Sign in
+                    Log In
                   </Link>
                 </Grid>
               </Grid>
             </Box>
           </Box>
-          {/* </form> */}
       </Container>
       {error && <h3>{error.message}</h3>}
     </Page>
