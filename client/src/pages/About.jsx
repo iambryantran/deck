@@ -26,26 +26,6 @@ export default function Gallery() {
           justifyContent="center"
           alignItems="center"
         >
-          {/* <Avatar
-            alt="Brandon Lambrecht"
-            src="/public/pikachu.png"
-            sx={{ width: 120, height: 120 }}
-          />
-          <Avatar
-            alt="Bryan Tran"
-            src="/public/charzard.jpg"
-            sx={{ width: 120, height: 120 }}
-          />
-          <Avatar
-            alt="Dalton Fussell"
-            src="/public/vapo.webp"
-            sx={{ width: 120, height: 120 }}
-          />
-          <Avatar
-            alt="Sepan Mustafa"
-            src="/public/evee.png"
-            sx={{ width: 120, height: 120 }}
-          /> */}
         </Stack>
         <Box
           component="section"
@@ -109,12 +89,7 @@ export default function Gallery() {
             </Box>
           </h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Accusantium, dolor saepe. Nulla culpa aliquid cumque impedit odio
-            eaque dolore sint non quam deserunt eligendi dolor vel ea officia,
-            delectus nam accusantium, laborum maiores ab quibusdam temporibus.
-            Culpa est sapiente quasi quam corporis aspernatur suscipit
-            voluptatem, ad, eos fugiat, necessitatibus dolorem.
+            Yo! I'm Bryan, a Full Stack Developer with a BS in Finance. I enjoy backend development and working with databases, so most of my projects have been focused on data collection and analysis. When I'm not coding, you can find me in the gym, analyzing stocks, spending time with my wife and cats, exploring new places, and playing tennis. I believe in working hard to achieve your goals and build the life you want. Feel free to reach out to me if you have any questions or just want to chat!
           </p>
         </Box>
         <Box

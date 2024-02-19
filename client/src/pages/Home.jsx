@@ -1,20 +1,15 @@
 import Page from "../components/Page";
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Toolbar from '@mui/material/Toolbar';
 import { getUser } from "../redux/slices/userSlice";
 import { useSelector } from "react-redux";
 import Button from "@mui/material/Button";
-import List from "@mui/material/List";
 import Container from "@mui/material/Container";
 import { Link } from "react-router-dom"
 import WorkIcon from '@mui/icons-material/Work';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Grid from "@mui/material/Grid";
 import { ImageListItem, Typography } from "@mui/material";
-
-
-
 
 const headContent = (
   <>
@@ -58,28 +53,26 @@ export default function Home() {
               Welcome to Career Cache
             </Typography>
             <Typography variant="subtitle1" sx={{ mt: 4}}>
-              your one stop shop for all things career
-              focused. Please create an account or log-in if you are already
-              registered! soreirnasdnfahdbwadsb wbajsdbuwada
+              We know the job search can be daunting. We're here to remove complexity and streamline your application process. No more endless open tabs, all your active applications in one place.
             </Typography>
             <Grid sx={{mt: 4, }}>
               <CheckCircleIcon sx={{fontSize: "20px", color: "#143033"}}/>
-                Easy job search
+                Save Application Links
               <CheckCircleIcon sx={{fontSize: "20px", color: "#143033"}}/>
-                Easy job search
+                Easily Sort and Filter
             </Grid>
             <Grid>
               <CheckCircleIcon sx={{fontSize: "20px", color: "#143033"}}/>
-                Easy job search
+                Save Networking Contacts
               <CheckCircleIcon sx={{fontSize: "20px", color: "#143033"}}/>
-                Easy job search
+                Track Job Status
             </Grid>
             <Link to= {"/signup"}>
               <Button 
               variant="contained" 
               sx={{ 
                 mt: 3, mb: 2, backgroundColor: "#6DA5C0", cursor: "pointer", padding: "25px ", color: ""}}>
-                Get started
+                Get Started
                 </Button>
             </Link>
             </Box>
@@ -118,10 +111,11 @@ export default function Home() {
           > 
           <WorkIcon sx={{ color: "#143033", fontSize: "47px",}}/>
             <h1>
-              Almost there 
+              {/* BROKEN */}
+              Welcome, {isAuthenticated.firstName}! 
             </h1>
             <p>
-              You've taken the first step to getting that new job you want.
+              Let's get to work!
             </p>
             <Link to= {"/dashboard"}>
               <Button fullWidth

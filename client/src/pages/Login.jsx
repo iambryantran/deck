@@ -4,10 +4,7 @@ import { LOGIN_USER } from "../graphql/mutations";
 import { useSelector } from "react-redux";
 import { getUser } from "../redux/slices/userSlice";
 import { Navigate } from "react-router-dom";
-// import "../Styles/LoginForm.css";
 import { Link } from "react-router-dom";
-import { FaUser, FaLock } from "react-icons/fa";
-// import { Stack } from '@mui/material';
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -25,7 +22,6 @@ const styles = {
   form: {
     display: "flex",
     flexDirection: "Column",
-    // width: "300px",
   },
   submitBtn: {
     cursor: "pointer",
@@ -35,7 +31,7 @@ const styles = {
 const headContent = (
   <>
     <title>Career Cache</title>
-    <meta name="description" content="Login for Project-3 Starter Code." />
+    <meta name="description" content="Login." />
   </>
 );
 
@@ -87,11 +83,9 @@ export default function Login() {
               backgroundColor: '#408C93',
               border: '2px solid rgba(255, 255, 255, .2)',
               backdropFilter: 'blur(30px)',
-              // borderWidth: '1px',
               width: '420px',
               borderRadius: '10px',
               padding: '30px 40px',
-              // color: '#fff',
               boxShadow: '0 0 10px  rgba(0, 0, 0, .2)',
               flexDirection: 'column',
               alignItems: 'center',
@@ -117,7 +111,6 @@ export default function Login() {
               <Grid item xs={12}>
                 <TextField
                   fullWidth
-                  // variant="filled"
                   id="email"
                   label="Email"
                   autoComplete="email"
@@ -140,7 +133,6 @@ export default function Login() {
                 <TextField
                   fullWidth
                   id="password"
-                  // variant="filled"
                   label="Password"
                   placeholder="Password"
                   name="password"
