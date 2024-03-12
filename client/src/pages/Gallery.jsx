@@ -2,13 +2,13 @@ import Page from "../components/Page";
 import JobCard from "../components/JobCard";
 import { Box } from "@mui/material";
 import { useQuery } from "@apollo/client";
-import { FIND_JOBS, FIND_CONTACTS } from "../graphql/queries";
+import { FIND_JOBS, FIND_CONTACTS, FIND_APPLIED_JOBS, FIND_NOT_APPLIED_JOBS } from "../graphql/queries";
 import ContactCard from "../components/ContactCard";
 
 const headContent = (
   <>
     <title>Gallery</title>
-    <meta name="description" content="This is the home page of my app." />
+    <meta name="description" content="Gallery" />
   </>
 );
 
