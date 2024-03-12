@@ -117,14 +117,14 @@ const resolvers = {
         console.log(err);
       }
     },
-    updatedJobAppliedStatus: async (id, applied) => {
-      const updatedStatus = await Job.findOneAndUpdate(
-        id,
-        { applied: applied },
-        { new: true }
-      );
-      return updatedStatus;
-    },
+    // updatedJobAppliedStatus: async (id, applied) => {
+    //   const updatedStatus = await Job.findOneAndUpdate(
+    //     id,
+    //     { applied: applied },
+    //     { new: true }
+    //   );
+    //   return updatedStatus;
+    // },
     addContact: async (parent, args, context) => {
       try {
         if (!context.user) {
