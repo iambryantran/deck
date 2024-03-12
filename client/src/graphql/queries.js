@@ -1,4 +1,3 @@
-
 import { gql } from "@apollo/client";
 
 export const QUERY_ME = gql`
@@ -40,3 +39,29 @@ export const FIND_CONTACTS = gql`
     }
   }
 `
+
+export const FIND_APPLIED_JOBS = gql`
+  query Query {
+    findAllAppliedJobs {
+      _id
+      company
+      location
+      salary
+      title
+      link
+    }
+  }
+`;
+
+export const FIND_NOT_APPLIED_JOBS = gql`
+  query Query {
+    findAllNotAppliedJobs {
+      _id
+      company
+      location
+      salary
+      title
+      link
+    }
+  }
+`;
