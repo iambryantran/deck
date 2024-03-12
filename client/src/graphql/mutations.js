@@ -74,7 +74,7 @@ export const ADD_JOB = gql`
 `;
 
 export const UPDATE_JOB = gql`
-  mutation updateJob($id: ID, $applied: Boolean) {
+  mutation updateJobAppliedStatus($id: ID, $applied: Boolean) {
     updateJob(id: $id, applied: $applied) {
       _id
       title
