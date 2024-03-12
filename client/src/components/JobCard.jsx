@@ -3,9 +3,18 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+// import { UPDATE_JOB } from '../graphql/mutations';
+// import { useMutation } from '@apollo/client';
+
 
 const JobCard = ({ jobData }) => {
     const { title, company, location, salary, tags, link, applied } = jobData;
+
+    // const [updateJobAppliedStatus] = useMutation(UPDATE_JOB);
+
+    // const handleAppliedChange = (event) => {
+    //     updateJobAppliedStatus({variables: {id: jobData._id, applied: event.target.checked}});
+    // }
 
     return (
         <Card sx={{ 
@@ -34,7 +43,9 @@ const JobCard = ({ jobData }) => {
             }}>
             <a href={link} target='_blank' rel="noopener noreferrer">Apply</a>
             <label>
-            <input type="checkbox" checked={applied} />
+            <input type="checkbox" checked={applied} 
+            // onChange={handleAppliedChange} 
+            />
             Applied
             </label>
             </Typography>
